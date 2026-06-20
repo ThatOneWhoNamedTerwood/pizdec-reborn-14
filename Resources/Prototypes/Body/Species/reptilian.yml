@@ -54,6 +54,7 @@
 - type: entity
   parent: BaseSpeciesAppearance
   id: AppearanceReptilian
+  categories: [ HideSpawnMenu ]
   name: reptilian appearance
   components:
   - type: Inventory
@@ -139,7 +140,6 @@
   - type: Puller
     needsHands: false
   - type: Butcherable
-    butcheringType: Spike
     spawned:
     - id: FoodMeatLizard
       amount: 5
@@ -150,6 +150,10 @@
     allowedEmotes: ['Thump']
   - type: TypingIndicator
     proto: lizard
+  - type: CreamPied
+    sprite:
+      sprite: Effects/creampie.rsi
+      state: creampie_lizard
   - type: Vocal
     sounds:
       Male: MaleReptilian
@@ -187,7 +191,7 @@
   - type: Wagging
 
 - type: entity
-  parent: OrganBase
+  parent: OrganBaseOrganic
   id: OrganReptilian
   abstract: true
   suffix: Reptilian
