@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Map
-  engineVersion: 275.2.0
+  engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 04/18/2026 14:29:51
-  entityCount: 41133
+  time: 06/28/2026 19:34:02
+  entityCount: 41134
 maps:
 - 1
 grids:
@@ -19428,13 +19428,11 @@ entities:
     - type: Solution
       solution:
         maxVol: 100
-        name: drink
         reagents:
         - data: []
           ReagentId: NTCahors
           Quantity: 100
     - type: ContainedSolution
-      containerName: drink
       container: 3
   - uid: 7
     components:
@@ -19445,13 +19443,11 @@ entities:
     - type: Solution
       solution:
         maxVol: 1
-        name: food
         reagents:
         - data: []
           ReagentId: Fiber
           Quantity: 1
     - type: ContainedSolution
-      containerName: food
       container: 6
   - uid: 18
     components:
@@ -19462,13 +19458,11 @@ entities:
     - type: Solution
       solution:
         maxVol: 1
-        name: food
         reagents:
         - data: []
           ReagentId: Fiber
           Quantity: 1
     - type: ContainedSolution
-      containerName: food
       container: 17
   - uid: 21
     components:
@@ -19479,13 +19473,11 @@ entities:
     - type: Solution
       solution:
         maxVol: 1
-        name: food
         reagents:
         - data: []
           ReagentId: Fiber
           Quantity: 1
     - type: ContainedSolution
-      containerName: food
       container: 20
   - uid: 26
     components:
@@ -19496,13 +19488,11 @@ entities:
     - type: Solution
       solution:
         maxVol: 1
-        name: food
         reagents:
         - data: []
           ReagentId: Fiber
           Quantity: 1
     - type: ContainedSolution
-      containerName: food
       container: 25
   - uid: 31
     components:
@@ -19513,13 +19503,11 @@ entities:
     - type: Solution
       solution:
         maxVol: 1
-        name: food
         reagents:
         - data: []
           ReagentId: Fiber
           Quantity: 1
     - type: ContainedSolution
-      containerName: food
       container: 30
   - uid: 36
     components:
@@ -19530,13 +19518,11 @@ entities:
     - type: Solution
       solution:
         maxVol: 15
-        name: pen
         reagents:
         - data: []
           ReagentId: Pax
           Quantity: 15
     - type: ContainedSolution
-      containerName: pen
       container: 35
   - uid: 38
     components:
@@ -19547,13 +19533,11 @@ entities:
     - type: Solution
       solution:
         maxVol: 15
-        name: injector
         reagents:
         - data: []
           ReagentId: Haloperidol
           Quantity: 15
     - type: ContainedSolution
-      containerName: injector
       container: 37
   - uid: 55
     components:
@@ -19564,13 +19548,11 @@ entities:
     - type: Solution
       solution:
         maxVol: 5
-        name: battery
         reagents:
         - data: []
           ReagentId: Plasma
           Quantity: 5
     - type: ContainedSolution
-      containerName: battery
       container: 54
   - uid: 58
     components:
@@ -19581,13 +19563,11 @@ entities:
     - type: Solution
       solution:
         maxVol: 10
-        name: food
         reagents:
         - data: []
           ReagentId: Fiber
           Quantity: 10
     - type: ContainedSolution
-      containerName: food
       container: 57
   - uid: 60
     components:
@@ -19598,7 +19578,6 @@ entities:
     - type: Solution
       solution:
         maxVol: 50
-        name: food
         reagents:
         - data: []
           ReagentId: Vitamin
@@ -19607,7 +19586,6 @@ entities:
           ReagentId: Nutriment
           Quantity: 37
     - type: ContainedSolution
-      containerName: food
       container: 59
   - uid: 62
     components:
@@ -19618,7 +19596,6 @@ entities:
     - type: Solution
       solution:
         maxVol: 20
-        name: food
         reagents:
         - data: []
           ReagentId: Nutriment
@@ -19627,7 +19604,6 @@ entities:
           ReagentId: Vitamin
           Quantity: 10
     - type: ContainedSolution
-      containerName: food
       container: 61
   - uid: 64
     components:
@@ -19638,7 +19614,6 @@ entities:
     - type: Solution
       solution:
         maxVol: 50
-        name: food
         reagents:
         - data: []
           ReagentId: Fat
@@ -19647,7 +19622,6 @@ entities:
           ReagentId: UncookedAnimalProteins
           Quantity: 25
     - type: ContainedSolution
-      containerName: food
       container: 63
   - uid: 66
     components:
@@ -19658,7 +19632,6 @@ entities:
     - type: Solution
       solution:
         maxVol: 20
-        name: food
         reagents:
         - data: []
           ReagentId: UncookedAnimalProteins
@@ -19667,7 +19640,6 @@ entities:
           ReagentId: Fat
           Quantity: 10
     - type: ContainedSolution
-      containerName: food
       container: 65
   - uid: 69
     components:
@@ -19678,13 +19650,11 @@ entities:
     - type: Solution
       solution:
         maxVol: 1
-        name: food
         reagents:
         - data: []
           ReagentId: Fiber
           Quantity: 1
     - type: ContainedSolution
-      containerName: food
       container: 68
   - uid: 78
     components:
@@ -19695,13 +19665,11 @@ entities:
     - type: Solution
       solution:
         maxVol: 1
-        name: food
         reagents:
         - data: []
           ReagentId: Fiber
           Quantity: 1
     - type: ContainedSolution
-      containerName: food
       container: 77
   - uid: 80
     components:
@@ -19712,13 +19680,11 @@ entities:
     - type: Solution
       solution:
         maxVol: 1
-        name: food
         reagents:
         - data: []
           ReagentId: Fiber
           Quantity: 1
     - type: ContainedSolution
-      containerName: food
       container: 79
   - uid: 82
     components:
@@ -19729,13 +19695,11 @@ entities:
     - type: Solution
       solution:
         maxVol: 1
-        name: food
         reagents:
         - data: []
           ReagentId: Fiber
           Quantity: 1
     - type: ContainedSolution
-      containerName: food
       container: 81
   - uid: 84
     components:
@@ -19746,13 +19710,11 @@ entities:
     - type: Solution
       solution:
         maxVol: 1
-        name: food
         reagents:
         - data: []
           ReagentId: Fiber
           Quantity: 1
     - type: ContainedSolution
-      containerName: food
       container: 83
   - uid: 86
     components:
@@ -19763,13 +19725,11 @@ entities:
     - type: Solution
       solution:
         maxVol: 1
-        name: food
         reagents:
         - data: []
           ReagentId: Fiber
           Quantity: 1
     - type: ContainedSolution
-      containerName: food
       container: 85
   - uid: 88
     components:
@@ -19780,13 +19740,11 @@ entities:
     - type: Solution
       solution:
         maxVol: 1
-        name: food
         reagents:
         - data: []
           ReagentId: Fiber
           Quantity: 1
     - type: ContainedSolution
-      containerName: food
       container: 87
   - uid: 90
     components:
@@ -19797,13 +19755,11 @@ entities:
     - type: Solution
       solution:
         maxVol: 1
-        name: food
         reagents:
         - data: []
           ReagentId: Fiber
           Quantity: 1
     - type: ContainedSolution
-      containerName: food
       container: 89
   - uid: 93
     components:
@@ -19814,13 +19770,11 @@ entities:
     - type: Solution
       solution:
         maxVol: 1
-        name: food
         reagents:
         - data: []
           ReagentId: Fiber
           Quantity: 1
     - type: ContainedSolution
-      containerName: food
       container: 92
   - uid: 95
     components:
@@ -19831,13 +19785,11 @@ entities:
     - type: Solution
       solution:
         maxVol: 1
-        name: food
         reagents:
         - data: []
           ReagentId: Fiber
           Quantity: 1
     - type: ContainedSolution
-      containerName: food
       container: 94
   - uid: 97
     components:
@@ -19848,13 +19800,11 @@ entities:
     - type: Solution
       solution:
         maxVol: 1
-        name: food
         reagents:
         - data: []
           ReagentId: Fiber
           Quantity: 1
     - type: ContainedSolution
-      containerName: food
       container: 96
   - uid: 104
     components:
@@ -19865,13 +19815,11 @@ entities:
     - type: Solution
       solution:
         maxVol: 1
-        name: food
         reagents:
         - data: []
           ReagentId: Fiber
           Quantity: 1
     - type: ContainedSolution
-      containerName: food
       container: 103
   - uid: 107
     components:
@@ -19882,13 +19830,11 @@ entities:
     - type: Solution
       solution:
         maxVol: 1
-        name: food
         reagents:
         - data: []
           ReagentId: Fiber
           Quantity: 1
     - type: ContainedSolution
-      containerName: food
       container: 106
   - uid: 110
     components:
@@ -19899,13 +19845,11 @@ entities:
     - type: Solution
       solution:
         maxVol: 1
-        name: food
         reagents:
         - data: []
           ReagentId: Fiber
           Quantity: 1
     - type: ContainedSolution
-      containerName: food
       container: 109
   - uid: 113
     components:
@@ -19916,13 +19860,11 @@ entities:
     - type: Solution
       solution:
         maxVol: 1
-        name: food
         reagents:
         - data: []
           ReagentId: Fiber
           Quantity: 1
     - type: ContainedSolution
-      containerName: food
       container: 112
   - uid: 115
     components:
@@ -19933,13 +19875,11 @@ entities:
     - type: Solution
       solution:
         maxVol: 1
-        name: food
         reagents:
         - data: []
           ReagentId: Fiber
           Quantity: 1
     - type: ContainedSolution
-      containerName: food
       container: 114
   - uid: 117
     components:
@@ -19950,13 +19890,11 @@ entities:
     - type: Solution
       solution:
         maxVol: 1
-        name: food
         reagents:
         - data: []
           ReagentId: Fiber
           Quantity: 1
     - type: ContainedSolution
-      containerName: food
       container: 116
   - uid: 119
     components:
@@ -19967,13 +19905,11 @@ entities:
     - type: Solution
       solution:
         maxVol: 1
-        name: food
         reagents:
         - data: []
           ReagentId: Fiber
           Quantity: 1
     - type: ContainedSolution
-      containerName: food
       container: 118
   - uid: 121
     components:
@@ -19984,13 +19920,11 @@ entities:
     - type: Solution
       solution:
         maxVol: 1
-        name: food
         reagents:
         - data: []
           ReagentId: Fiber
           Quantity: 1
     - type: ContainedSolution
-      containerName: food
       container: 120
   - uid: 123
     components:
@@ -20001,13 +19935,11 @@ entities:
     - type: Solution
       solution:
         maxVol: 1
-        name: food
         reagents:
         - data: []
           ReagentId: Fiber
           Quantity: 1
     - type: ContainedSolution
-      containerName: food
       container: 122
   - uid: 126
     components:
@@ -20018,13 +19950,11 @@ entities:
     - type: Solution
       solution:
         maxVol: 1
-        name: food
         reagents:
         - data: []
           ReagentId: Fiber
           Quantity: 1
     - type: ContainedSolution
-      containerName: food
       container: 125
   - uid: 128
     components:
@@ -20035,13 +19965,11 @@ entities:
     - type: Solution
       solution:
         maxVol: 1
-        name: food
         reagents:
         - data: []
           ReagentId: Fiber
           Quantity: 1
     - type: ContainedSolution
-      containerName: food
       container: 127
   - uid: 130
     components:
@@ -20052,13 +19980,11 @@ entities:
     - type: Solution
       solution:
         maxVol: 1
-        name: food
         reagents:
         - data: []
           ReagentId: Fiber
           Quantity: 1
     - type: ContainedSolution
-      containerName: food
       container: 129
   - uid: 132
     components:
@@ -20069,13 +19995,11 @@ entities:
     - type: Solution
       solution:
         maxVol: 1
-        name: food
         reagents:
         - data: []
           ReagentId: Fiber
           Quantity: 1
     - type: ContainedSolution
-      containerName: food
       container: 131
   - uid: 134
     components:
@@ -20086,13 +20010,11 @@ entities:
     - type: Solution
       solution:
         maxVol: 1
-        name: food
         reagents:
         - data: []
           ReagentId: Fiber
           Quantity: 1
     - type: ContainedSolution
-      containerName: food
       container: 133
   - uid: 136
     components:
@@ -20103,13 +20025,11 @@ entities:
     - type: Solution
       solution:
         maxVol: 1
-        name: food
         reagents:
         - data: []
           ReagentId: Fiber
           Quantity: 1
     - type: ContainedSolution
-      containerName: food
       container: 135
   - uid: 145
     components:
@@ -20120,13 +20040,11 @@ entities:
     - type: Solution
       solution:
         maxVol: 1
-        name: food
         reagents:
         - data: []
           ReagentId: Fiber
           Quantity: 1
     - type: ContainedSolution
-      containerName: food
       container: 144
   - uid: 147
     components:
@@ -20137,13 +20055,11 @@ entities:
     - type: Solution
       solution:
         maxVol: 1
-        name: food
         reagents:
         - data: []
           ReagentId: Fiber
           Quantity: 1
     - type: ContainedSolution
-      containerName: food
       container: 146
   - uid: 149
     components:
@@ -20154,13 +20070,11 @@ entities:
     - type: Solution
       solution:
         maxVol: 1
-        name: food
         reagents:
         - data: []
           ReagentId: Fiber
           Quantity: 1
     - type: ContainedSolution
-      containerName: food
       container: 148
   - uid: 151
     components:
@@ -20171,13 +20085,11 @@ entities:
     - type: Solution
       solution:
         maxVol: 1
-        name: food
         reagents:
         - data: []
           ReagentId: Fiber
           Quantity: 1
     - type: ContainedSolution
-      containerName: food
       container: 150
   - uid: 153
     components:
@@ -20188,13 +20100,11 @@ entities:
     - type: Solution
       solution:
         maxVol: 5
-        name: food
         reagents:
         - data: []
           ReagentId: Vitamin
           Quantity: 3
     - type: ContainedSolution
-      containerName: food
       container: 152
   - uid: 155
     components:
@@ -20205,7 +20115,6 @@ entities:
     - type: Solution
       solution:
         maxVol: 55
-        name: food
         reagents:
         - data: []
           ReagentId: Nutriment
@@ -20217,7 +20126,6 @@ entities:
           ReagentId: PolypyryliumOligomers
           Quantity: 15
     - type: ContainedSolution
-      containerName: food
       container: 154
   - uid: 41236
     components:
@@ -103097,7 +103005,6 @@ entities:
     - type: Transform
       parent: 34
     - type: SolutionContainerManager
-      solutions: null
       containers:
       - pen
     - type: Tag
@@ -106047,10 +105954,6 @@ entities:
     - type: SolutionContainerManager
       solutions:
         food:
-          temperature: 293.15
-          canReact: True
-          maxVol: 0
-          name: food
           reagents: []
       containers:
       - food
@@ -108688,11 +108591,11 @@ entities:
       parent: 2
 - proto: ComputerCargoOrdersService
   entities:
-  - uid: 16347
+  - uid: 2348
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 31.5,16.5
+      rot: -1.5707963267948966 rad
+      pos: 37.5,-1.5
       parent: 2
 - proto: ComputerComms
   entities:
@@ -128132,7 +128035,6 @@ entities:
     - type: PressurizedSolution
       sprayFizzinessThresholdRoll: 0.0485634
     - type: SolutionContainerManager
-      solutions: null
       containers:
       - drink
     - type: ContainerContainer
@@ -136548,10 +136450,6 @@ entities:
     - type: SolutionContainerManager
       solutions:
         food:
-          temperature: 293.15
-          canReact: True
-          maxVol: 0
-          name: food
           reagents: []
       containers:
       - food
@@ -136584,8 +136482,6 @@ entities:
       slope: 1.5
       intensity: 6
     - type: LightningArcShooter
-    missingComponents:
-    - SliceableFood
 - proto: FoodCartCold
   entities:
   - uid: 19536
@@ -189839,10 +189735,6 @@ entities:
     - type: SolutionContainerManager
       solutions:
         food:
-          temperature: 293.15
-          canReact: True
-          maxVol: 0
-          name: food
           reagents: []
       containers:
       - food
@@ -192793,10 +192685,6 @@ entities:
     - type: SolutionContainerManager
       solutions:
         food:
-          temperature: 293.15
-          canReact: True
-          maxVol: 0
-          name: food
           reagents: []
       containers:
       - food
@@ -192853,10 +192741,6 @@ entities:
     - type: SolutionContainerManager
       solutions:
         food:
-          temperature: 293.15
-          canReact: True
-          maxVol: 0
-          name: food
           reagents: []
       containers:
       - food
@@ -192916,10 +192800,6 @@ entities:
     - type: SolutionContainerManager
       solutions:
         food:
-          temperature: 293.15
-          canReact: True
-          maxVol: 0
-          name: food
           reagents: []
       containers:
       - food
@@ -192979,10 +192859,6 @@ entities:
     - type: SolutionContainerManager
       solutions:
         food:
-          temperature: 293.15
-          canReact: True
-          maxVol: 0
-          name: food
           reagents: []
       containers:
       - food
@@ -193190,10 +193066,6 @@ entities:
     - type: SolutionContainerManager
       solutions:
         food:
-          temperature: 293.15
-          canReact: True
-          maxVol: 0
-          name: food
           reagents: []
       containers:
       - food
@@ -193249,10 +193121,6 @@ entities:
     - type: SolutionContainerManager
       solutions:
         food:
-          temperature: 293.15
-          canReact: True
-          maxVol: 0
-          name: food
           reagents: []
       containers:
       - food
@@ -193307,10 +193175,6 @@ entities:
     - type: SolutionContainerManager
       solutions:
         food:
-          temperature: 293.15
-          canReact: True
-          maxVol: 0
-          name: food
           reagents: []
       containers:
       - food
@@ -193365,10 +193229,6 @@ entities:
     - type: SolutionContainerManager
       solutions:
         food:
-          temperature: 293.15
-          canReact: True
-          maxVol: 0
-          name: food
           reagents: []
       containers:
       - food
@@ -193467,10 +193327,6 @@ entities:
     - type: SolutionContainerManager
       solutions:
         food:
-          temperature: 293.15
-          canReact: True
-          maxVol: 0
-          name: food
           reagents: []
       containers:
       - food
@@ -193569,10 +193425,6 @@ entities:
     - type: SolutionContainerManager
       solutions:
         food:
-          temperature: 293.15
-          canReact: True
-          maxVol: 0
-          name: food
           reagents: []
       containers:
       - food
@@ -193671,10 +193523,6 @@ entities:
     - type: SolutionContainerManager
       solutions:
         food:
-          temperature: 293.15
-          canReact: True
-          maxVol: 0
-          name: food
           reagents: []
       containers:
       - food
@@ -193870,10 +193718,6 @@ entities:
     - type: SolutionContainerManager
       solutions:
         food:
-          temperature: 293.15
-          canReact: True
-          maxVol: 0
-          name: food
           reagents: []
       containers:
       - food
@@ -193976,10 +193820,6 @@ entities:
     - type: SolutionContainerManager
       solutions:
         food:
-          temperature: 293.15
-          canReact: True
-          maxVol: 0
-          name: food
           reagents: []
       containers:
       - food
@@ -194071,10 +193911,6 @@ entities:
     - type: SolutionContainerManager
       solutions:
         food:
-          temperature: 293.15
-          canReact: True
-          maxVol: 0
-          name: food
           reagents: []
       containers:
       - food
@@ -194185,10 +194021,6 @@ entities:
     - type: SolutionContainerManager
       solutions:
         food:
-          temperature: 293.15
-          canReact: True
-          maxVol: 0
-          name: food
           reagents: []
       containers:
       - food
@@ -194389,10 +194221,6 @@ entities:
     - type: SolutionContainerManager
       solutions:
         food:
-          temperature: 293.15
-          canReact: True
-          maxVol: 0
-          name: food
           reagents: []
       containers:
       - food
@@ -194495,10 +194323,6 @@ entities:
     - type: SolutionContainerManager
       solutions:
         food:
-          temperature: 293.15
-          canReact: True
-          maxVol: 0
-          name: food
           reagents: []
       containers:
       - food
@@ -194603,10 +194427,6 @@ entities:
     - type: SolutionContainerManager
       solutions:
         food:
-          temperature: 293.15
-          canReact: True
-          maxVol: 0
-          name: food
           reagents: []
       containers:
       - food
@@ -194711,10 +194531,6 @@ entities:
     - type: SolutionContainerManager
       solutions:
         food:
-          temperature: 293.15
-          canReact: True
-          maxVol: 0
-          name: food
           reagents: []
       containers:
       - food
@@ -194819,10 +194635,6 @@ entities:
     - type: SolutionContainerManager
       solutions:
         food:
-          temperature: 293.15
-          canReact: True
-          maxVol: 0
-          name: food
           reagents: []
       containers:
       - food
@@ -194927,10 +194739,6 @@ entities:
     - type: SolutionContainerManager
       solutions:
         food:
-          temperature: 293.15
-          canReact: True
-          maxVol: 0
-          name: food
           reagents: []
       containers:
       - food
@@ -195041,10 +194849,6 @@ entities:
     - type: SolutionContainerManager
       solutions:
         food:
-          temperature: 293.15
-          canReact: True
-          maxVol: 0
-          name: food
           reagents: []
       containers:
       - food
@@ -195160,10 +194964,6 @@ entities:
     - type: SolutionContainerManager
       solutions:
         food:
-          temperature: 293.15
-          canReact: True
-          maxVol: 0
-          name: food
           reagents: []
       containers:
       - food
@@ -195279,10 +195079,6 @@ entities:
     - type: SolutionContainerManager
       solutions:
         food:
-          temperature: 293.15
-          canReact: True
-          maxVol: 0
-          name: food
           reagents: []
       containers:
       - food
@@ -195392,10 +195188,6 @@ entities:
     - type: SolutionContainerManager
       solutions:
         food:
-          temperature: 293.15
-          canReact: True
-          maxVol: 0
-          name: food
           reagents: []
       containers:
       - food
@@ -195500,10 +195292,6 @@ entities:
     - type: SolutionContainerManager
       solutions:
         food:
-          temperature: 293.15
-          canReact: True
-          maxVol: 0
-          name: food
           reagents: []
       containers:
       - food
@@ -195595,10 +195383,6 @@ entities:
     - type: SolutionContainerManager
       solutions:
         food:
-          temperature: 293.15
-          canReact: True
-          maxVol: 0
-          name: food
           reagents: []
       containers:
       - food
@@ -195690,10 +195474,6 @@ entities:
     - type: SolutionContainerManager
       solutions:
         food:
-          temperature: 293.15
-          canReact: True
-          maxVol: 0
-          name: food
           reagents: []
       containers:
       - food
@@ -195785,10 +195565,6 @@ entities:
     - type: SolutionContainerManager
       solutions:
         food:
-          temperature: 293.15
-          canReact: True
-          maxVol: 0
-          name: food
           reagents: []
       containers:
       - food
@@ -195899,10 +195675,6 @@ entities:
     - type: SolutionContainerManager
       solutions:
         food:
-          temperature: 293.15
-          canReact: True
-          maxVol: 0
-          name: food
           reagents: []
       containers:
       - food
@@ -195999,10 +195771,6 @@ entities:
     - type: SolutionContainerManager
       solutions:
         food:
-          temperature: 293.15
-          canReact: True
-          maxVol: 0
-          name: food
           reagents: []
       containers:
       - food
@@ -196104,10 +195872,6 @@ entities:
     - type: SolutionContainerManager
       solutions:
         food:
-          temperature: 293.15
-          canReact: True
-          maxVol: 0
-          name: food
           reagents: []
       containers:
       - food
@@ -196209,10 +195973,6 @@ entities:
     - type: SolutionContainerManager
       solutions:
         food:
-          temperature: 293.15
-          canReact: True
-          maxVol: 0
-          name: food
           reagents: []
       containers:
       - food
@@ -196314,10 +196074,6 @@ entities:
     - type: SolutionContainerManager
       solutions:
         food:
-          temperature: 293.15
-          canReact: True
-          maxVol: 0
-          name: food
           reagents: []
       containers:
       - food
@@ -199840,6 +199596,11 @@ entities:
       parent: 2
 - proto: PottedPlantRandom
   entities:
+  - uid: 2347
+    components:
+    - type: Transform
+      pos: 31.5,16.5
+      parent: 2
   - uid: 28667
     components:
     - type: Transform
@@ -200138,7 +199899,6 @@ entities:
     - type: Transform
       parent: 53
     - type: SolutionContainerManager
-      solutions: null
       containers:
       - battery
     - type: Riggable
@@ -205711,10 +205471,6 @@ entities:
     - type: SolutionContainerManager
       solutions:
         food:
-          temperature: 293.15
-          canReact: True
-          maxVol: 0
-          name: food
           reagents: []
       containers:
       - food
@@ -210885,7 +210641,6 @@ entities:
       pos: -61.66147,-50.156868
       parent: 2
     - type: SolutionContainerManager
-      solutions: null
       containers:
       - food
     - type: ContainerContainer
@@ -210903,7 +210658,6 @@ entities:
       pos: -61.645844,-50.453743
       parent: 2
     - type: SolutionContainerManager
-      solutions: null
       containers:
       - food
     - type: ContainerContainer
@@ -210921,7 +210675,6 @@ entities:
       pos: -61.31772,-50.172493
       parent: 2
     - type: SolutionContainerManager
-      solutions: null
       containers:
       - food
     - type: ContainerContainer
@@ -210944,7 +210697,6 @@ entities:
       pos: -61.34897,-50.422493
       parent: 2
     - type: SolutionContainerManager
-      solutions: null
       containers:
       - food
     - type: ContainerContainer
@@ -228694,7 +228446,6 @@ entities:
       tags:
       - Syringe
     - type: SolutionContainerManager
-      solutions: null
       containers:
       - injector
     - type: Physics
@@ -234264,6 +234015,10 @@ entities:
           showEnts: False
           occludes: True
           ents: []
+        DisposalUnitComponent: !type:Container
+          showEnts: False
+          occludes: True
+          ents: []
   - uid: 32140
     components:
     - type: Transform
@@ -234276,6 +234031,10 @@ entities:
           occludes: True
           ent: 32141
         disposals: !type:Container
+          showEnts: False
+          occludes: True
+          ents: []
+        DisposalUnitComponent: !type:Container
           showEnts: False
           occludes: True
           ents: []
