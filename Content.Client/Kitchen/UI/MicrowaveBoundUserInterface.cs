@@ -107,7 +107,7 @@ namespace Content.Client.Kitchen.UI
             }
             else
             {
-                _menu.IngredientsPanel.PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex("#1B1B1E") };
+                _menu.IngredientsPanel.PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex("#1e1a1a") };
             }
         }
 

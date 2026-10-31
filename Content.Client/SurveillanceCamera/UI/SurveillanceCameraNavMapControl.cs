@@ -15,7 +15,7 @@ public sealed partial class SurveillanceCameraNavMapControl : NavMapControl
     private static readonly Color CameraActiveColor = Color.FromHex("#FF00FF");
     private static readonly Color CameraInactiveColor = Color.FromHex("#a09f9fff");
     private static readonly Color CameraSelectedColor = Color.FromHex("#fbff19ff");
-    private static readonly Color CameraInvalidColor = Color.FromHex("#fa1f1fff");
+    private static readonly Color CameraInvalidColor = Color.FromHex("#ca7200ff");
 
     private readonly Texture _activeTexture;
     private readonly Texture _inactiveTexture;

@@ -28,7 +28,7 @@ public sealed class PdaSheetlet : Sheetlet<NanotrasenStylesheet>
             E<PanelContainer>()
                 .Class("PdaContentBackground")
                 .Prop(PanelContainer.StylePropertyPanel, StyleBoxHelpers.SquareStyleBox(sheet))
-                .Prop(Control.StylePropertyModulateSelf, Color.FromHex("#25252a")),
+                .Prop(Control.StylePropertyModulateSelf, Color.FromHex("#2a2424")),
 
             E<PanelContainer>()
                 .Class("PdaBackground")

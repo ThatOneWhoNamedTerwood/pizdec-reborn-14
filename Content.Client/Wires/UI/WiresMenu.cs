@@ -43,7 +43,7 @@ namespace Content.Client.Wires.UI
             var back = new StyleBoxTexture
             {
                 Texture = panelTex,
-                Modulate = Color.FromHex("#25252A"),
+                Modulate = Color.FromHex("#2a2424"),
             };
             back.SetPatchMargin(StyleBox.Margin.All, 10);
 
@@ -195,7 +195,7 @@ namespace Content.Client.Wires.UI
 
             var middle = new PanelContainer
             {
-                PanelOverride = new StyleBoxFlat {BackgroundColor = Color.FromHex("#202025")},
+                PanelOverride = new StyleBoxFlat {BackgroundColor = Color.FromHex("#251f1f")},
                 Children =
                 {
                     new BoxContainer
@@ -575,7 +575,7 @@ namespace Content.Client.Wires.UI
                 {
                     Text = data.Text,
                     FontOverride = font,
-                    FontColorOverride = Color.FromHex("#A1A6AE"),
+                    FontColorOverride = Color.FromHex("#aea3a2"),
                     VerticalAlignment = VAlignment.Center,
                 });
                 hBox.AddChild(lightContainer);

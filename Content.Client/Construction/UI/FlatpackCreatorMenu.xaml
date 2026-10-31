@@ -18,7 +18,7 @@
                 <PanelContainer VerticalExpand="True"
                                 HorizontalExpand="True">
                     <PanelContainer.PanelOverride>
-                        <gfx:StyleBoxFlat BackgroundColor="#1B1B1E" />
+                        <gfx:StyleBoxFlat BackgroundColor="#1e1a1a" />
                     </PanelContainer.PanelOverride>
                     <BoxContainer Orientation="Vertical" VerticalAlignment="Center">
                         <RichTextLabel Name="CostLabel" HorizontalAlignment="Center" VerticalAlignment="Center"/>
@@ -35,7 +35,7 @@
                 HorizontalExpand="True"
                 RectClipContent="True">
                 <PanelContainer.PanelOverride>
-                    <gfx:StyleBoxFlat BackgroundColor="#1B1B1E" />
+                    <gfx:StyleBoxFlat BackgroundColor="#1e1a1a" />
                 </PanelContainer.PanelOverride>
                 <ui:MaterialStorageControl Name="MaterialStorageControl"/>
             </PanelContainer>

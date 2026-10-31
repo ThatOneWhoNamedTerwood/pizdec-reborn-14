@@ -13,8 +13,8 @@ public sealed partial class PlaytimeStatsWindow : FancyWindow
 {
     [Dependency] private JobRequirementsManager _jobRequirementsManager = default!;
     private ISawmill _sawmill = Logger.GetSawmill("PlaytimeStatsWindow");
-    private readonly Color _altColor = Color.FromHex("#292B38");
-    private readonly Color _defaultColor = Color.FromHex("#2F2F3B");
+    private readonly Color _altColor = Color.FromHex("#372727");
+    private readonly Color _defaultColor = Color.FromHex("#3b2c2b");
     private bool _useAltColor;
 
     public PlaytimeStatsWindow()

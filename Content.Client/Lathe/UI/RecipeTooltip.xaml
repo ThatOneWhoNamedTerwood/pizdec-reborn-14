@@ -5,8 +5,8 @@
         <PanelContainer.PanelOverride>
             <gfx:StyleBoxFlat 
                 BorderThickness="2" 
-                BorderColor="#464966"
-                BackgroundColor="#25252A"
+                BorderColor="#644140"
+                BackgroundColor="#2a2424"
             />
         </PanelContainer.PanelOverride>
         <BoxContainer 

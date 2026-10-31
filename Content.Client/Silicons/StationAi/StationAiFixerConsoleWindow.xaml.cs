@@ -32,10 +32,10 @@ public sealed partial class StationAiFixerConsoleWindow : FancyWindow
 
     private readonly Dictionary<StationAiState, Color> _statusColors = new()
     {
-        [StationAiState.Empty] = Color.FromHex("#464966"),
+        [StationAiState.Empty] = Color.FromHex("#644140"),
         [StationAiState.Occupied] = Color.FromHex("#3E6C45"),
         [StationAiState.Rebooting] = Color.FromHex("#A5762F"),
-        [StationAiState.Dead] = Color.FromHex("#BB3232"),
+        [StationAiState.Dead] = Color.FromHex("#985e00"),
     };
 
     public StationAiFixerConsoleWindow()

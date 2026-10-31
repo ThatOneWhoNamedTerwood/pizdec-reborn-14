@@ -49,7 +49,7 @@
                         <TextureRect Stretch="KeepAspectCentered"
                                      TexturePath="/Textures/Interface/NavMap/beveled_square.png"
                                      SetSize="20 20"
-                                     Modulate="#fa1f1fff"
+                                     Modulate="#ca7200ff"
                                      Margin="10 0 5 0"/>
                         <Label Text="{Loc 'surveillance-camera-monitor-ui-legend-invalid'}"/>
                     </BoxContainer>

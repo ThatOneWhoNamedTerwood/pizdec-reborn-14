@@ -189,12 +189,12 @@ public sealed partial class SquadEntry : PanelContainer
         if (member.SensorStatus == null || !member.SensorStatus.IsAlive)
         {
             backgroundColor = Color.FromHex("#1a0a0a");
-            borderColor = Color.FromHex("#990000");
+            borderColor = Color.FromHex("#7a4000");
         }
         else
         {
             backgroundColor = Color.FromHex("#3a0f0f");
-            borderColor = Color.FromHex("#ff6666");
+            borderColor = Color.FromHex("#d49200");
         }
 
         var panel = new PanelContainer
@@ -362,12 +362,12 @@ public sealed partial class SquadEntry : PanelContainer
         if (status == null || !status.IsAlive)
         {
             backgroundColor = Color.FromHex("#1a0a0a");
-            borderColor = Color.FromHex("#990000");
+            borderColor = Color.FromHex("#7a4000");
         }
         else
         {
             backgroundColor = Color.FromHex("#3a0f0f");
-            borderColor = Color.FromHex("#ff6666");
+            borderColor = Color.FromHex("#d49200");
         }
 
         if (panel.PanelOverride is StyleBoxFlat styleBox)

@@ -49,7 +49,7 @@
                     <TextureRect Stretch="KeepAspectCentered"
                                 TexturePath="/Textures/Interface/NavMap/beveled_square.png"
                                 SetSize="16 16"
-                                Modulate="#ff4343"
+                                Modulate="#d08000"
                                 Margin="20 0 5 0"/>
                     <Label Text="{Loc 'atmos-alerts-window-danger-state'}"/>
                 </BoxContainer>

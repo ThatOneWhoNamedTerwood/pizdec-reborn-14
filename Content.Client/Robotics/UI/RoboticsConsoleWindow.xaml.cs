@@ -123,7 +123,7 @@ public sealed partial class RoboticsConsoleWindow : FancyWindow
         BorgSprite.Texture = _sprite.Frame0(data.ChassisSprite!);
 
         var batteryColor = data.Charge switch {
-            < 0.2f => "#FF6C7F", // red
+            < 0.2f => "#d69700", // red
             < 0.4f => "#EF973C", // orange
             < 0.6f => "#E8CB2D", // yellow
             < 0.8f => "#30CC19", // green
@@ -131,7 +131,7 @@ public sealed partial class RoboticsConsoleWindow : FancyWindow
         };
 
         var hpPercentColor = data.HpPercent switch {
-            < 0.2f => "#FF6C7F", // red
+            < 0.2f => "#d69700", // red
             < 0.4f => "#EF973C", // orange
             < 0.6f => "#E8CB2D", // yellow
             < 0.8f => "#30CC19", // green

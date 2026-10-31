@@ -12,7 +12,7 @@
                 <RichTextLabel Name="ResultName"/>
             </BoxContainer>
             <PanelContainer.PanelOverride>
-                <gfx:StyleBoxFlat BackgroundColor="#393c3f"/>
+                <gfx:StyleBoxFlat BackgroundColor="#3f3a3a"/>
             </PanelContainer.PanelOverride>
         </PanelContainer>
 

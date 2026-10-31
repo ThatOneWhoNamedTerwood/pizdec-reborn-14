@@ -637,7 +637,7 @@ public sealed partial class StorageWindow : BaseWindow
             {
                 if (TryGetBackgroundCell(x, y, out var cell) && itemShape.Contains(x, y))
                 {
-                    cell.ModulateSelfOverride = validLocation ? validColor : Color.FromHex("#B40046");
+                    cell.ModulateSelfOverride = validLocation ? validColor : Color.FromHex("#924f00");
                 }
             }
         }

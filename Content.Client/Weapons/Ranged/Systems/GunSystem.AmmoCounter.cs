@@ -302,7 +302,7 @@ public sealed partial class GunSystem
             var capacity = bullets.Length;
             var colorA = Color.FromHex("#b68f0e");
             var colorB = Color.FromHex("#d7df60");
-            var colorSpentA = Color.FromHex("#b50e25");
+            var colorSpentA = Color.FromHex("#915000");
             var colorSpentB = Color.FromHex("#d3745f");
             var colorGoneA = Color.FromHex("#000000");
             var colorGoneB = Color.FromHex("#222222");

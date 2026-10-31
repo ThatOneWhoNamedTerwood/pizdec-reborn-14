@@ -208,7 +208,7 @@ public partial class MapGridControl : LayoutContainer
 
     protected void DrawNoSignal(DrawingHandleScreen handle)
     {
-        var greyColor = Color.FromHex("#474F52");
+        var greyColor = Color.FromHex("#544b4b");
 
         // Draw funny lines
         var lineCount = 4f;

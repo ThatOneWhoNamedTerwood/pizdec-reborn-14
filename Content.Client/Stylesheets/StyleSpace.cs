@@ -11,15 +11,15 @@ namespace Content.Client.Stylesheets
     [Obsolete("Please use the new sheetlet system to define styles, and remove all references to this class as it may be deleted in the future")]
     public sealed class StyleSpace : StyleBase
     {
-        public static readonly Color SpaceRed = Color.FromHex("#9b2236");
+        public static readonly Color SpaceRed = Color.FromHex("#7e4b00");
 
-        public static readonly Color ButtonColorDefault = Color.FromHex("#464966");
-        public static readonly Color ButtonColorHovered = Color.FromHex("#575b7f");
+        public static readonly Color ButtonColorDefault = Color.FromHex("#644140");
+        public static readonly Color ButtonColorHovered = Color.FromHex("#7c514f");
         public static readonly Color ButtonColorPressed = Color.FromHex("#3e6c45");
-        public static readonly Color ButtonColorDisabled = Color.FromHex("#30313c");
+        public static readonly Color ButtonColorDisabled = Color.FromHex("#3c2e2d");
 
-        public static readonly Color ButtonColorCautionDefault = Color.FromHex("#ab3232");
-        public static readonly Color ButtonColorCautionHovered = Color.FromHex("#cf2f2f");
+        public static readonly Color ButtonColorCautionDefault = Color.FromHex("#8c5800");
+        public static readonly Color ButtonColorCautionHovered = Color.FromHex("#a86400");
         public static readonly Color ButtonColorCautionPressed = Color.FromHex("#3e6c45");
         public static readonly Color ButtonColorCautionDisabled = Color.FromHex("#602a2a");
 
@@ -154,7 +154,7 @@ namespace Content.Client.Stylesheets
 
                 Element<PanelContainer>().Class(StyleClass.BackgroundPanel)
                     .Prop(PanelContainer.StylePropertyPanel, BaseAngleRect)
-                    .Prop(Control.StylePropertyModulateSelf, Color.FromHex("#202030")),
+                    .Prop(Control.StylePropertyModulateSelf, Color.FromHex("#2f1c1b")),
 
                 Child()
                     .Parent(Element<Button>().Class(ContainerButton.StylePseudoClassDisabled))

@@ -38,7 +38,7 @@ public sealed partial class TurretControllerWindow : BaseWindow
     {
         [TurretArmamentSetting.Safe] = Color.FromHex("#33e633"),
         [TurretArmamentSetting.Stun] = Color.FromHex("#dfb827"),
-        [TurretArmamentSetting.Lethal] = Color.FromHex("#da2a2a")
+        [TurretArmamentSetting.Lethal] = Color.FromHex("#b06700")
     };
 
     public TurretControllerWindow()

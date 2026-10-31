@@ -13,7 +13,7 @@
                 <!-- AI panel -->
                 <PanelContainer>
                     <PanelContainer.PanelOverride>
-                        <gfx:StyleBoxFlat BackgroundColor="#1B1B1E" />
+                        <gfx:StyleBoxFlat BackgroundColor="#1e1a1a" />
                     </PanelContainer.PanelOverride>
 
                     <BoxContainer Orientation="Vertical">

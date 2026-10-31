@@ -7,7 +7,7 @@
                         Resizable="False"
                         MouseFilter="Stop">
 
-    <PanelContainer Name="Background" StyleClasses="PdaBackgroundRect" ModulateSelfOverride="#4a5466"/>
+    <PanelContainer Name="Background" StyleClasses="PdaBackgroundRect" ModulateSelfOverride="#654d4c"/>
     <PanelContainer Name="Border" StyleClasses="PdaBorderRect" />
 
     <BoxContainer Orientation="Vertical" HorizontalExpand="True">

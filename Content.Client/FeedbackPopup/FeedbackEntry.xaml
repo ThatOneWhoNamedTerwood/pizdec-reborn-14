@@ -1,6 +1,6 @@
 ﻿<Control xmlns="https://spacestation14.io"
          MinHeight="100">
-    <PanelContainer StyleClasses="BackgroundPanel" ModulateSelfOverride="#2b2b31"/>
+    <PanelContainer StyleClasses="BackgroundPanel" ModulateSelfOverride="#312a29"/>
     <BoxContainer Orientation="Vertical">
 
         <!-- Title -->

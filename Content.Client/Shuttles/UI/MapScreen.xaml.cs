@@ -142,13 +142,13 @@ public sealed partial class MapScreen : BoxContainer
                     MapRadar.SetMap(shuttleXform.MapID, targetOffset, recentering: true);
                 }
 
-                _ftlStyle.BackgroundColor = Color.FromHex("#B02E26");
+                _ftlStyle.BackgroundColor = Color.FromHex("#8f5700");
                 MapRadar.InFtl = false;
                 break;
             // Fallback in case no FTL state or the likes.
             default:
                 SetFTLAllowed(false);
-                _ftlStyle.BackgroundColor = Color.FromHex("#B02E26");
+                _ftlStyle.BackgroundColor = Color.FromHex("#8f5700");
                 MapRadar.InFtl = false;
                 break;
         }
