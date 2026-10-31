@@ -1,0 +1,41 @@
+﻿- type: lobbyBackground
+  id: LoopEmbers
+  background: /Textures/Corvax/LobbyScreens/loop_embers.gif
+  title: lobby-state-background-loop-embers-title
+  artist: lobby-state-background-loop-embers-artist
+
+- type: lobbyBackground
+  id: LoopNebula
+  background: /Textures/Corvax/LobbyScreens/loop_nebula.gif
+  title: lobby-state-background-loop-nebula-title
+  artist: lobby-state-background-loop-nebula-artist
+
+- type: lobbyBackground
+  id: LoopRadar
+  background: /Textures/Corvax/LobbyScreens/loop_radar.gif
+  title: lobby-state-background-loop-radar-title
+  artist: lobby-state-background-loop-radar-artist
+
+- type: lobbyBackground
+  id: LoopWarp
+  background: /Textures/Corvax/LobbyScreens/loop_warp.gif
+  title: lobby-state-background-loop-warp-title
+  artist: lobby-state-background-loop-warp-artist
+
+- type: lobbyBackground
+  id: LoopAurora
+  background: /Textures/Corvax/LobbyScreens/loop_aurora.gif
+  title: lobby-state-background-loop-aurora-title
+  artist: lobby-state-background-loop-aurora-artist
+
+- type: lobbyBackground
+  id: LoopRain
+  background: /Textures/Corvax/LobbyScreens/loop_rain.gif
+  title: lobby-state-background-loop-rain-title
+  artist: lobby-state-background-loop-rain-artist
+
+- type: lobbyBackground
+  id: LoopHexgrid
+  background: /Textures/Corvax/LobbyScreens/loop_hexgrid.gif
+  title: lobby-state-background-loop-hexgrid-title
+  artist: lobby-state-background-loop-hexgrid-artist

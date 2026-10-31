@@ -25,22 +25,22 @@ public sealed class ButtonSheetlet<T> : Sheetlet<T> where T : PalettedStylesheet
         {
             // Set textures for the kinds of buttons
             CButton()
-                .Box(StyleBoxHelpers.BaseStyleBox(sheet)),
+                .Box(StyleBoxHelpers.RoundedStyleBox(sheet)),
             CButton()
                 .Class(StyleClass.ButtonOpenLeft)
-                .Box(StyleBoxHelpers.OpenLeftStyleBox(sheet)),
+                .Box(StyleBoxHelpers.RoundedStyleBox(sheet)),
             CButton()
                 .Class(StyleClass.ButtonOpenRight)
-                .Box(StyleBoxHelpers.OpenRightStyleBox(sheet)),
+                .Box(StyleBoxHelpers.RoundedStyleBox(sheet)),
             CButton()
                 .Class(StyleClass.ButtonOpenBoth)
-                .Box(StyleBoxHelpers.SquareStyleBox(sheet)),
+                .Box(StyleBoxHelpers.RoundedStyleBox(sheet)),
             CButton()
                 .Class(StyleClass.ButtonSquare)
-                .Box(StyleBoxHelpers.SquareStyleBox(sheet)),
+                .Box(StyleBoxHelpers.RoundedStyleBox(sheet)),
             CButton()
                 .Class(StyleClass.ButtonSmall)
-                .Box(StyleBoxHelpers.SmallStyleBox(sheet)),
+                .Box(StyleBoxHelpers.RoundedStyleBox(sheet)),
             CButton()
                 .Class(StyleClass.ButtonSmall)
                 .ParentOf(E<Label>())
@@ -132,6 +132,26 @@ public sealed class ButtonSheetlet<T> : Sheetlet<T> where T : PalettedStylesheet
 public static class StyleBoxHelpers
 {
     // TODO: Figure out a nicer way to store/represent these hardcoded margins. This is icky.
+    public static StyleBoxTexture RoundedStyleBox<T>(T sheet) where T : PalettedStylesheet, IButtonConfig
+    {
+        var roundedBox = new StyleBoxTexture
+        {
+            Texture = sheet.GetTextureOr(sheet.RoundedButtonPath, NanotrasenStylesheet.TextureRoot),
+        };
+        roundedBox.SetPatchMargin(StyleBox.Margin.All, 10);
+        roundedBox.SetPadding(StyleBox.Margin.All, 1);
+        roundedBox.SetContentMarginOverride(StyleBox.Margin.Vertical, 2);
+        roundedBox.SetContentMarginOverride(StyleBox.Margin.Horizontal, 14);
+        return roundedBox;
+    }
+
+    public static StyleBoxTexture TranslucentStyleBox<T>(T sheet) where T : PalettedStylesheet, IButtonConfig
+    {
+        var box = RoundedStyleBox(sheet);
+        box.Modulate = Color.FromHex("#000000D9");
+        return box;
+    }
+
     public static StyleBoxTexture BaseStyleBox<T>(T sheet) where T : PalettedStylesheet, IButtonConfig
     {
         var baseBox = new StyleBoxTexture

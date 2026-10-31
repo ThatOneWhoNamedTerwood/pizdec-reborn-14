@@ -36,3 +36,20 @@ lobby-state-playtime-comment-normal =
 lobby-state-playtime-comment-concerning = Сегодня вы наиграли { $hours } часов. Пожалуйста, отдохните.
 lobby-state-playtime-comment-grasstouchless = { $hours } часов. Подумайте о выходе из игры, чтобы заняться своими делами.
 lobby-state-playtime-comment-selfdestructive = { $hours } часов. Серьёзно?
+
+lobby-state-background-loop-nebula-title = [color=white]Туманность[/color]
+lobby-state-background-loop-nebula-artist = [color=white]Процедурный цикл[/color]
+lobby-state-background-loop-radar-title = [color=white]Радар[/color]
+lobby-state-background-loop-radar-artist = [color=white]Процедурный цикл[/color]
+lobby-state-background-loop-embers-title = [color=white]Угли[/color]
+lobby-state-background-loop-embers-artist = [color=white]Процедурный цикл[/color]
+
+lobby-state-background-loop-hexgrid-title = [color=white]Сетка[/color]
+lobby-state-background-loop-hexgrid-artist = [color=white]Процедурный цикл[/color]
+lobby-state-background-loop-rain-title = [color=white]Дождь кода[/color]
+lobby-state-background-loop-rain-artist = [color=white]Процедурный цикл[/color]
+lobby-state-background-loop-warp-title = [color=white]Гиперпрыжок[/color]
+lobby-state-background-loop-warp-artist = [color=white]Процедурный цикл[/color]
+lobby-state-background-loop-aurora-title = [color=white]Сияние[/color]
+lobby-state-background-loop-aurora-artist = [color=white]Процедурный цикл[/color]
+

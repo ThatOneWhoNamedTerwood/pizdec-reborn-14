@@ -8,7 +8,7 @@ using static Content.Client.Stylesheets.StylesheetHelpers;
 namespace Content.Client.Stylesheets.Sheetlets;
 
 [CommonSheetlet]
-public sealed class OptionButtonSheetlet<T> : Sheetlet<T> where T : PalettedStylesheet, IIconConfig
+public sealed class OptionButtonSheetlet<T> : Sheetlet<T> where T : PalettedStylesheet, IIconConfig, IButtonConfig
 {
     public override StyleRule[] GetRules(T sheet, object config)
     {
@@ -19,6 +19,7 @@ public sealed class OptionButtonSheetlet<T> : Sheetlet<T> where T : PalettedStyl
 
         return
         [
+            E<OptionButton>().Box(StyleBoxHelpers.RoundedStyleBox(sheet)),
             E<TextureRect>()
                 .Class(OptionButton.StyleClassOptionTriangle)
                 .Prop(TextureRect.StylePropertyTexture, invertedTriangleTex),

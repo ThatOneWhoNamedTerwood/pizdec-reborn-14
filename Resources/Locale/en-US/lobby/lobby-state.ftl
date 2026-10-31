@@ -33,3 +33,20 @@ lobby-state-playtime-comment-normal =
 lobby-state-playtime-comment-concerning = You've played for {$hours} hours today. Please take a break.
 lobby-state-playtime-comment-grasstouchless = {$hours} hours. Consider logging off to attend to your needs.
 lobby-state-playtime-comment-selfdestructive = {$hours} hours. Really?
+
+lobby-state-background-loop-nebula-title = [color=white]Nebula[/color]
+lobby-state-background-loop-nebula-artist = [color=white]Procedural loop[/color]
+lobby-state-background-loop-radar-title = [color=white]Radar[/color]
+lobby-state-background-loop-radar-artist = [color=white]Procedural loop[/color]
+lobby-state-background-loop-embers-title = [color=white]Embers[/color]
+lobby-state-background-loop-embers-artist = [color=white]Procedural loop[/color]
+
+lobby-state-background-loop-hexgrid-title = [color=white]Hex Grid[/color]
+lobby-state-background-loop-hexgrid-artist = [color=white]Procedural loop[/color]
+lobby-state-background-loop-rain-title = [color=white]Code Rain[/color]
+lobby-state-background-loop-rain-artist = [color=white]Procedural loop[/color]
+lobby-state-background-loop-warp-title = [color=white]Hyperjump[/color]
+lobby-state-background-loop-warp-artist = [color=white]Procedural loop[/color]
+lobby-state-background-loop-aurora-title = [color=white]Aurora[/color]
+lobby-state-background-loop-aurora-artist = [color=white]Procedural loop[/color]
+

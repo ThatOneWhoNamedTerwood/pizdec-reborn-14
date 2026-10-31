@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Client.Audio;
 using Content.Client.GameTicking.Managers;
 using Content.Client.LateJoin;
@@ -13,8 +14,10 @@ using Robust.Client.ResourceManagement;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Configuration;
+using Robust.Shared.Log;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+using Robust.Shared.Utility;
 
 namespace Content.Client.Lobby
 {
@@ -33,6 +36,9 @@ namespace Content.Client.Lobby
 
         private ClientGameTicker _gameTicker = default!;
         private ContentAudioSystem _contentAudioSystem = default!;
+
+        private readonly ISawmill _sawmill = Logger.GetSawmill("lobby.video");
+        private LobbyVideoBackground? _videoBackground;
 
         protected override Type? LinkedScreenType { get; } = typeof(LobbyGui);
         public LobbyGui? Lobby;
@@ -85,6 +91,8 @@ namespace Content.Client.Lobby
             _gameTicker.LobbyStatusUpdated -= LobbyStatusUpdated;
             _gameTicker.LobbyLateJoinStatusUpdated -= LobbyLateJoinStatusUpdated;
             _contentAudioSystem.LobbySoundtrackChanged -= UpdateLobbySoundtrackInfo;
+            _videoBackground?.Dispose();
+            _videoBackground = null;
 
             _voteManager.ClearPopupContainer();
 
@@ -124,6 +132,12 @@ namespace Content.Client.Lobby
 
         public override void FrameUpdate(FrameEventArgs e)
         {
+            if (_videoBackground != null && Lobby != null)
+            {
+                _videoBackground.Advance((float) e.DeltaSeconds);
+                Lobby.Background.Texture = _videoBackground.Texture;
+            }
+
             if (_gameTicker.IsGameStarted)
             {
                 Lobby!.StartTime.Text = string.Empty;
@@ -252,9 +266,28 @@ namespace Content.Client.Lobby
 
         private void UpdateLobbyBackground()
         {
+            _videoBackground?.Dispose();
+            _videoBackground = null;
+
             if (_protoMan.TryIndex(_gameTicker.LobbyBackground, out var proto))
             {
-                Lobby!.Background.Texture = _resourceCache.GetResource<TextureResource>(proto.Background);
+                if (HasVideoFrames(proto.Background))
+                {
+                    _videoBackground = TryCreateVideoBackground(proto.Background);
+
+                    if (_videoBackground == null)
+                    {
+                        Lobby!.Background.Texture = null;
+                        Lobby!.LobbyBackground.SetMarkup(Loc.GetString("lobby-state-background-no-background-text"));
+                        return;
+                    }
+
+                    Lobby!.Background.Texture = _videoBackground.Texture;
+                }
+                else
+                {
+                    Lobby!.Background.Texture = _resourceCache.GetResource<TextureResource>(proto.Background);
+                }
 
                 var markup = Loc.GetString("lobby-state-background-text",
                     ("backgroundTitle", Loc.GetString(proto.Title)),
@@ -267,6 +300,41 @@ namespace Content.Client.Lobby
                 Lobby!.Background.Texture = null;
 
                 Lobby!.LobbyBackground.SetMarkup(Loc.GetString("lobby-state-background-no-background-text"));
+            }
+        }
+
+        private bool HasVideoFrames(ResPath path)
+        {
+            var framesPath = GetFramesPath(path);
+            return _resourceCache.ContentGetDirectoryEntries(framesPath).Any();
+        }
+
+        private static ResPath GetFramesPath(ResPath path)
+        {
+            var extension = path.Extension;
+            var canon = extension.Length > 0 ? path.CanonPath[..^(extension.Length + 1)] : path.CanonPath;
+            return new ResPath(canon + LobbyVideoBackground.FramesSuffix);
+        }
+
+        private LobbyVideoBackground? TryCreateVideoBackground(ResPath path)
+        {
+            var framesPath = GetFramesPath(path);
+
+            try
+            {
+                var video = new LobbyVideoBackground(_resourceCache, _resourceCache, framesPath);
+                if (video.FrameCount == 0)
+                {
+                    _sawmill.Error($"Lobby video background at {framesPath} contains no frames.");
+                    return null;
+                }
+
+                return video;
+            }
+            catch (Exception e)
+            {
+                _sawmill.Error($"Failed to create lobby video background from {framesPath}: {e}");
+                return null;
             }
         }
 

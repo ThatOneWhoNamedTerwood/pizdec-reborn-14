@@ -14,7 +14,11 @@ public sealed partial class GameTicker
     [ViewVariables]
     private List<ProtoId<LobbyBackgroundPrototype>>? _lobbyBackgrounds;
 
-    private static readonly string[] WhitelistedBackgroundExtensions = new string[] {"png", "jpg", "jpeg", "webp"};
+    private const bool VideoBackgroundsOnly = true;
+
+    private static readonly string[] VideoBackgroundExtensions = new string[] {"gif", "mp4", "webm"};
+
+    private static readonly string[] WhitelistedBackgroundExtensions = new string[] {"png", "jpg", "jpeg", "webp", "gif", "mp4", "webm"};
 
     private void InitializeLobbyBackground()
     {
@@ -25,7 +29,8 @@ public sealed partial class GameTicker
         foreach (var proto in allprotos)
         {
             var ext = proto.Background.Extension;
-            if (!WhitelistedBackgroundExtensions.Contains(ext))
+            var allowed = VideoBackgroundsOnly ? VideoBackgroundExtensions : WhitelistedBackgroundExtensions;
+            if (!allowed.Contains(ext))
                 continue;
 
             //create a protoid and add it to the list
