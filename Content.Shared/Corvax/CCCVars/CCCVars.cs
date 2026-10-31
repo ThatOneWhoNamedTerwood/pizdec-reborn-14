@@ -146,18 +146,18 @@ public sealed class CCCVars
     ///     Установить режим возвраждения.
     /// </summary>
     public static readonly CVarDef<bool> GhostGoLobbyEnabled =
-        CVarDef.Create("ghost.go_lobby.enabled", false, CVar.SERVER | CVar.REPLICATED);
+        CVarDef.Create("ghost.go_lobby.enabled", true, CVar.SERVER | CVar.REPLICATED);
 
     /// <summary>
     ///     Лимит по общему количеству наигранного времени для возвраждения.
     /// </summary>
     public static readonly CVarDef<float> GhostGoLobbyTimeHours =
-        CVarDef.Create("ghost.go_lobby.require_time", 25f, CVar.SERVERONLY);
+        CVarDef.Create("ghost.go_lobby.require_time", 0f, CVar.SERVERONLY);
 
     /// <summary>
     ///     Длительность до возможность возврадиться.
     /// </summary>
     public static readonly CVarDef<float> GhostGoLobbyDeathTimeMinutes =
-        CVarDef.Create("ghost.go_lobby.death_time", 15f, CVar.SERVERONLY);
+        CVarDef.Create("ghost.go_lobby.death_time", 3f, CVar.SERVERONLY);
 
 }

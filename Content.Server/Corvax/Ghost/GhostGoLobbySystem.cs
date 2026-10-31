@@ -96,26 +96,41 @@ public sealed partial class GhostGoLobbySystem : EntitySystem
 
     private void TryGhostGoLobby(EntityUid uid, ICommonSession session)
     {
+        TryGoLobby(session, message => _popup.PopupEntity(message, uid, uid));
+    }
+
+    public bool TryGoLobby(ICommonSession session, Action<string>? fail = null)
+    {
+        if (session.AttachedEntity is not { Valid: true } uid)
+        {
+            fail?.Invoke("Вернуться в лобби можно только призраком.");
+            return false;
+        }
+
         if (!_enabled)
-            return;
+        {
+            fail?.Invoke("Возврат в лобби отключён.");
+            return false;
+        }
 
         var all = _playTime.GetOverallPlaytime(session);
         if (all < _requiredPlaytime)
         {
             var remaining = (int)Math.Ceiling((_requiredPlaytime - all).TotalHours);
-            _popup.PopupEntity(Loc.GetString("ghost-go-lobby-playtime", ("hours", remaining)), uid, uid);
-            return;
+            fail?.Invoke(Loc.GetString("ghost-go-lobby-playtime", ("hours", remaining)));
+            return false;
         }
 
         if (TryComp<GhostGoLobbyComponent>(uid, out var lobby) && _timing.CurTime < lobby.AvailableAt)
         {
             var remaining = (int)Math.Ceiling((lobby.AvailableAt - _timing.CurTime).TotalMinutes);
-            _popup.PopupEntity(Loc.GetString("ghost-go-lobby-deathtime", ("minutes", remaining)), uid, uid);
-            return;
+            fail?.Invoke(Loc.GetString("ghost-go-lobby-deathtime", ("minutes", remaining)));
+            return false;
         }
 
         _mind.WipeMind(session);
 
         RaiseLocalEvent(new GhostJoinLobbyRequestEvent(session));
+        return true;
     }
 }
