@@ -1,43 +1,54 @@
-<p align="center"> <img alt="Space Station 14" width="880" height="300" src="https://github.com/LurvianSoGoofyAhhPerson/fucking-assets/blob/main/pizdec-logo.png" /></p>
-
 <div class="header" align="center">
-
-[![Discord](https://img.shields.io/discord/831352358520725506?label=Discord&logo=discord&logoColor=white)](https://discord.gg/tH8NrBAwaN)
-[![Wiki](https://img.shields.io/badge/Wiki-SS14%20Official-blue)](https://wiki.spacestation14.com/wiki/Main_Page)
-[![Steam](https://img.shields.io/badge/Steam-SS14%20Official-blue)](https://store.steampowered.com/app/1255460/Space_Station_14/)
-[![Client](https://img.shields.io/badge/Client-Download-blue)](https://spacestation14.io/about/nightlies/)
-[![GitHub](https://img.shields.io/github/stars/LurvianSoGoofyAhhPerson/pizdec-station-14?style=social)](https://github.com/ThatOneWhoNamedTerwood/pizdec-reborn-14/)
-
-# Слава НРП  Слава НРП  Слава НРП  
-
+<img alt="Space Station 14" width="880" height="300" src="https://raw.githubusercontent.com/space-wizards/asset-dump/de329a7898bb716b9d5ba9a0cd07f38e61f1ed05/github-logo.svg">
 </div>
 
-Space Station 14 — это ролевая игра, вдохновлённая культовой классикой Space Station 13. Это сборка NoneRolePlay проекта, а именно Пиздец Станции 14. Проект позицианирует себя как "свободный от оков RolePlay'я" - каждый на этом сервере волен творить то, что он хочет(В рамках небольшого количества правил).
+Space Station 14 это ремейк SS13, который работает на собственном движке [Robust Toolbox](https://github.com/space-wizards/RobustToolbox), написанном на C#.
+
+Это репозиторий первого русскоязычного сервера по Space Station 14, целью которого является полный перевод игры на русский язык, поддержка актуальных изменений из основного репозитория, а так же добавление собственных изменений по необходимости.
+
+## Ссылки
+
+[Наш Discord](https://discord.station14.ru) | [Наша Вики](https://station14.ru/) | [Steam](https://store.steampowered.com/app/1255460/Space_Station_14/) | [Клиент без Steam](https://spacestation14.io/about/nightlies/) | [Основной репозиторий](https://github.com/space-wizards/space-station-14)
 
 ## Документация
 
 На официальном сайте с [документацией](https://docs.spacestation14.io/) имеется вся необходимая информация о контенте SS14, движке, дизайне игры и многом другом. Также имеется много информации для начинающих разработчиков.
 
-## Вклад
+Кроме того, ознакомьтесь со следующими ресурсами, содержащими информацию о лицензировании и указании авторства:
+- [Robust Generic Attribution](https://docs.spacestation14.com/en/specifications/robust-generic-attribution.html)
+- [Robust Station Image](https://docs.spacestation14.com/en/specifications/robust-station-image.html)
 
-Если вы хотите вложить свой вклад в разработку нашего проекта - мы ждём вас на [нашем сервере Discord](https://discord.gg/2AdnUUDWrP), где мы вас сможем принять в разработчики.
+## Контрибьют
 
-## Готовая сборка
+Мы рады принять вклад от любого человека. Заходите в Discord, если хотите помочь. У нас есть [список проблем](https://github.com/space-syndicate/space-station-14-content/issues), которые нужно решить, и любой может за них взяться. Не бойтесь просить о помощи!
+Только убедитесь, что ваши изменения и PRы соответствуют [руководству по контрибьюту](https://docs.spacestation14.com/en/general-development/codebase-info/pull-request-guidelines.html).
 
-Готовые сборки именно этого проекта будут находиться в разделе **"Releases"**. Можете спокойно скачивать и пользоваться, но убедительная просьба, если вы открываете сервер на базе этой сборки - **ни в коем случае** не удаляйте памятники/плакаты, что посвящены дорогим этому проекту людям(включая плакат набегаторов).
+## Политика к коду сгенерированным ИИ
+Не принимаются материалы, созданные с помощью ИИ без должных усилий и проверки. К ним относятся, в частности:
 
-## Самостоятельная сборка
+- Любой код (включая YAML), сгенерированный через GitHub Copilot, ChatGPT и им подобными.
+- Изображения, аудиофайлы и другие ресурсы, созданные с помощью ИИ.
+- Автоматически сгенерированная документация, отчеты об ошибках (issue reports) или описания запросов на слияние.
 
-1. Склонируйте этот репозиторий.
-2. Запустите скрипт `RUN_THIS.py` для инициализации субмодулей и скачивания движка.
-3. Соберите решение через Visual Studio или dotnet в терминале.
+## Сборка
 
-[Более детальная инструкция для сборки.](https://docs.spacestation14.com/en/general-development/setup.html)
+1. Склонируйте этот репозиторий:
+```shell
+git clone https://github.com/space-syndicate/space-station-14.git
+```
+2. Запустите `RUN_THIS.py` для инициализации подмодулей и скачивания движка:
+```shell
+cd space-station-14
+python RUN_THIS.py
+```
+3. Скомпилируйте проект используя `dotnet build`
+
+[Более подробная инструкция по запуску проекта.](https://station14.ru/wiki/%D0%97%D0%B0%D0%BF%D1%83%D1%81%D0%BA_%D0%BB%D0%BE%D0%BA%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B3%D0%BE_%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D0%B0)
 
 ## Лицензия
 
-Весь код репозитория лицензирован под [MIT](https://gitlab.workbench.network/Workbench-Team/space-station-14/blob/master-ru/LICENSE.TXT).
+Весь код репозитория лицензирован под [MIT](https://github.com/space-syndicate/space-station-14/blob/master/LICENSE.TXT).
 
-Большинство ассетов лицензированы под [CC-BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) если не имеют иное. Ассеты имеют свою лицензию и авторские права в файле метаданных. [Пример](https://gitlab.workbench.network/Workbench-Team/space-station-14/blob/master-ru/Resources/Textures/Objects/Tools/crowbar.rsi/meta.json).
+Большинство ассетов лицензированы под [CC-BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/), если не указано иное. Ассеты имеют свою лицензию и авторские права в файле метаданных. [Пример](https://github.com/space-syndicate/space-station-14/blob/master/Resources/Textures/Objects/Tools/crowbar.rsi/meta.json).
 
-Обратите внимание, что некоторые ассеты лицензированы на некоммерческой основе [CC-BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/) или аналогичной некоммерческой лицензией, и их необходимо удалить, если Вы хотите использовать этот проект в коммерческих целях.
+Обратите внимание, что некоторые ассеты лицензированы на некоммерческой основе [CC-BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/) или аналогичной некоммерческой лицензией, и их необходимо удалить, если вы хотите использовать этот проект в коммерческих целях.

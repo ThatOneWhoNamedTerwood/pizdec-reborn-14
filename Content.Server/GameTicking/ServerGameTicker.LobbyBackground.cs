@@ -1,0 +1,49 @@
+using Content.Shared.GameTicking.Prototypes;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
+using System.Linq;
+
+namespace Content.Server.GameTicking;
+
+public sealed partial class ServerGameTicker
+{
+    [ViewVariables]
+    public ProtoId<LobbyBackgroundPrototype>? LobbyBackground { get; private set; }
+
+    [ViewVariables]
+    private List<ProtoId<LobbyBackgroundPrototype>>? _lobbyBackgrounds;
+
+    private const bool VideoBackgroundsOnly = true;
+
+    private static readonly string[] VideoBackgroundExtensions = new string[] {"gif", "mp4", "webm"};
+
+    private static readonly string[] WhitelistedBackgroundExtensions = new string[] {"png", "jpg", "jpeg", "webp", "gif", "mp4", "webm"};
+
+    private void InitializeLobbyBackground()
+    {
+        var allprotos = ProtoMan.EnumeratePrototypes<LobbyBackgroundPrototype>().ToList();
+        _lobbyBackgrounds ??= new List<ProtoId<LobbyBackgroundPrototype>>();
+
+        //create protoids from them
+        foreach (var proto in allprotos)
+        {
+            var ext = proto.Background.Extension;
+            var allowed = VideoBackgroundsOnly ? VideoBackgroundExtensions : WhitelistedBackgroundExtensions;
+            if (!allowed.Contains(ext))
+                continue;
+
+            //create a protoid and add it to the list
+            _lobbyBackgrounds.Add(new ProtoId<LobbyBackgroundPrototype>(proto.ID));
+        }
+
+        RandomizeLobbyBackground();
+    }
+
+    private void RandomizeLobbyBackground()
+    {
+        if (_lobbyBackgrounds != null && _lobbyBackgrounds.Count != 0)
+            LobbyBackground = Random.Pick(_lobbyBackgrounds);
+        else
+            LobbyBackground = null;
+    }
+}

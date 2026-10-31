@@ -24,6 +24,8 @@ public abstract class CommonStylesheet : PalettedStylesheet, IButtonConfig, IWin
 
     ResPath IPanelConfig.GeometricPanelBorderPath => new("geometric_panel_border.svg.96dpi.png");
     ResPath IPanelConfig.BlackPanelDarkThinBorderPath => new("black_panel_dark_thin_border.png");
+    Color IPanelConfig.DeepPanelBackgroundColor => Color.FromHex("#1e1a1a");
+    Color IPanelConfig.DeepPanelBorderColor => Color.FromHex("#2a2424");
 
     ResPath ITooltipConfig.TooltipBoxPath => new("tooltip.png");
     ResPath ITooltipConfig.WhisperBoxPath => new("whisper.png");
