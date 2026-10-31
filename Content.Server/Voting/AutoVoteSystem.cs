@@ -9,13 +9,12 @@ using Content.Shared.Maps;
 using Content.Shared.Voting;
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
 namespace Content.Server.Voting;
 
 /// <summary>
-///     После окончания раунда запускает голосование за режим, затем за карту, затем перезапускает раунд.
+///     При переходе в лобби запускает голосование за режим, затем за карту.
 /// </summary>
 public sealed partial class AutoVoteSystem : EntitySystem
 {
@@ -38,32 +37,22 @@ public sealed partial class AutoVoteSystem : EntitySystem
 
     private void OnRunLevelChanged(GameRunLevelChangedEvent ev)
     {
-        if (ev.New == GameRunLevel.PostRound)
-        {
-            _running = false;
-
-            if (!_enabled)
-                return;
-
-            StartPresetVote();
-            return;
-        }
-
         _running = false;
+
+        if (ev.New != GameRunLevel.PreRoundLobby || !_enabled)
+            return;
+
+        StartPresetVote();
     }
 
     private void StartPresetVote()
     {
-        if (_running)
+        if (_running || _playerManager.PlayerCount == 0)
             return;
-
-        if (_playerManager.PlayerCount == 0)
-        {
-            Finish();
-            return;
-        }
 
         _running = true;
+
+        _ticker.DelayStart(TimeSpan.FromSeconds(_cfg.GetCVar(CCVars.VoteTimerPreset) + 5));
 
         if (!TryCreateVote(StandardVoteType.Preset, out var vote))
         {
@@ -76,9 +65,11 @@ public sealed partial class AutoVoteSystem : EntitySystem
 
     private void StartMapVote()
     {
+        _ticker.DelayStart(TimeSpan.FromSeconds(_cfg.GetCVar(CCVars.VoteTimerMap) + 5));
+
         if (!TryCreateVote(StandardVoteType.Map, out var vote))
         {
-            Finish();
+            _running = false;
             return;
         }
 
@@ -91,7 +82,7 @@ public sealed partial class AutoVoteSystem : EntitySystem
                 if (winner is GameMapPrototype map)
                     _mapManager.SelectMap(map.ID);
 
-                Finish();
+                _running = false;
             });
         };
     }
@@ -115,11 +106,5 @@ public sealed partial class AutoVoteSystem : EntitySystem
     private static void Defer(Action action)
     {
         Timer.Spawn(TimeSpan.FromMilliseconds(100), action);
-    }
-
-    private void Finish()
-    {
-        _running = false;
-        _ticker.RestartRound();
     }
 }
