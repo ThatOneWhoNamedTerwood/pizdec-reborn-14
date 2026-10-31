@@ -1,0 +1,7 @@
+﻿- type: entity
+  id: NrpRoundTimer
+  parent: BaseGameRule
+  components:
+  - type: MaxTimeRestartRule
+    roundMaxTime: 4800
+    roundEndDelay: 10

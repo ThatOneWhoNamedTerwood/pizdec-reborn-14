@@ -135,6 +135,7 @@
   maxPlayers: 5
   rules:
     - Sandbox
+    - NrpRoundTimer
 
 - type: gamePreset
   id: Traitor
