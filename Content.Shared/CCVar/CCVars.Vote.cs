@@ -91,6 +91,9 @@ public sealed partial class CCVars
     /// <summary>
     ///     Config for when the votekick should be allowed to be called based on number of eligible voters.
     /// </summary>
+    public static readonly CVarDef<bool> AutoVoteEnabled =
+        CVarDef.Create("vote.auto", true, CVar.SERVERONLY);
+
     public static readonly CVarDef<int> VotekickEligibleNumberRequirement =
         CVarDef.Create("votekick.eligible_number", 5, CVar.SERVERONLY);
 
