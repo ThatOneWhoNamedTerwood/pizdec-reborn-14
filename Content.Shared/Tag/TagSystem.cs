@@ -17,6 +17,7 @@ namespace Content.Shared.Tag;
 public sealed partial class TagSystem : EntitySystem
 {
     [Dependency] private EntityQuery<TagComponent> _tagQuery = default!;
+    [Dependency] private IComponentFactory _componentFactory = default!;
 
     public override void Initialize()
     {
@@ -25,6 +26,12 @@ public sealed partial class TagSystem : EntitySystem
 #if DEBUG
         SubscribeLocalEvent<TagComponent, ComponentInit>(OnTagInit);
 #endif
+    }
+
+    public bool HasTag(EntityPrototype prototype, ProtoId<TagPrototype> tag)
+    {
+        return prototype.TryGetComponent<TagComponent>(out var component, _componentFactory)
+               && component.Tags.Contains(tag);
     }
 
 #if DEBUG

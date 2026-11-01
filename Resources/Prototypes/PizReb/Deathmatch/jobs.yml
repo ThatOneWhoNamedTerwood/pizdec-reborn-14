@@ -1,0 +1,37 @@
+- type: department
+  id: PizReb
+  name: department-PizReb
+  description: department-PizReb-description
+  color: "#B33A3A"
+  weight: 130
+  roles:
+  - PizRebFighter
+
+- type: playTimeTracker
+  id: JobPizRebFighter
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconPizRebFighter
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: Passenger
+  jobName: job-name-pizreb-fighter
+
+- type: job
+  id: PizRebFighter
+  name: job-name-pizreb-fighter
+  description: job-description-pizreb-fighter
+  playTimeTracker: JobPizRebFighter
+  startingGear: PizRebFighterGear
+  icon: JobIconPizRebFighter
+  supervisors: job-supervisors-nobody
+  setPreference: true
+  access:
+  - Maintenance
+
+- type: startingGear
+  id: PizRebFighterGear
+  equipment:
+    id: PassengerPDA
+    ears: ClothingHeadsetGrey

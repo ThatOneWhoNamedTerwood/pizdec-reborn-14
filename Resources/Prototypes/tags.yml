@@ -462,6 +462,9 @@
   id: Diagonal # Used by TileWallsCommand and FixRotationsCommand
 
 - type: Tag
+  id: DeathMatchWeapons # Weapon pool for the PizReb deathmatch rule
+
+- type: Tag
   id: Diamond # CargoBounty: BountySalvageDiamond
 
 - type: Tag

@@ -64,6 +64,14 @@ public sealed partial class GhostGoLobbyButton : Button
     {
         base.FrameUpdate(args);
 
+        if (_entMan.System<Content.Client.PizReb.Deathmatch.PizRebDeathmatchClientSystem>().DeathmatchActive)
+        {
+            Visible = false;
+            return;
+        }
+
+        Visible = _cfg.GetCVar(CCCVars.GhostGoLobbyEnabled);
+
         var remaining = _players.LocalEntity is { } player
             && _entMan.TryGetComponent<GhostGoLobbyComponent>(player, out var lobby)
                 ? lobby.AvailableAt - _timing.CurTime

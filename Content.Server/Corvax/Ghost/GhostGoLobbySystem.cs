@@ -1,5 +1,6 @@
 using Content.Server._Corvax.Events;
 using Content.Server.Mind;
+using Content.Server.PizReb.Deathmatch;
 using Content.Server.Players.PlayTimeTracking;
 using Content.Shared.Corvax.CCCVars;
 using Content.Shared.Corvax.Events;
@@ -110,6 +111,13 @@ public sealed partial class GhostGoLobbySystem : EntitySystem
         if (!_enabled)
         {
             fail?.Invoke("Возврат в лобби отключён.");
+            return false;
+        }
+
+        var deathmatchQuery = EntityQueryEnumerator<PizRebDeathmatchRuleComponent>();
+        if (deathmatchQuery.MoveNext(out _, out _))
+        {
+            fail?.Invoke(Loc.GetString("pizreb-deathmatch-go-lobby-disabled"));
             return false;
         }
 

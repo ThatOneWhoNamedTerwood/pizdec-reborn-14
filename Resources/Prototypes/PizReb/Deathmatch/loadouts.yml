@@ -1,0 +1,171 @@
+- type: loadoutGroup
+  id: PizRebFighterJumpsuit
+  name: loadout-group-pizreb-jumpsuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - PizRebJumpsuitGrey
+  - PizRebJumpskirtGrey
+  - PizRebJumpsuitBlack
+  - PizRebJumpsuitRed
+  - PizRebJumpsuitGreen
+
+- type: loadoutGroup
+  id: PizRebFighterShoes
+  name: loadout-group-pizreb-shoes
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - PizRebShoesBlack
+  - PizRebShoesJack
+  - PizRebShoesWork
+
+- type: loadoutGroup
+  id: PizRebFighterBack
+  name: loadout-group-pizreb-back
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - PizRebBackpack
+  - PizRebSatchel
+  - PizRebDuffel
+
+- type: loadoutGroup
+  id: PizRebFighterHead
+  name: loadout-group-pizreb-head
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - PizRebHeadBeret
+  - PizRebHeadFlatcap
+  - PizRebHeadCorpsoft
+
+- type: loadoutGroup
+  id: PizRebFighterGloves
+  name: loadout-group-pizreb-gloves
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - PizRebGlovesFingerless
+  - PizRebGlovesBlack
+  - PizRebGlovesLatex
+
+- type: loadoutGroup
+  id: PizRebFighterWeapon
+  name: loadout-group-pizreb-weapon
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - PizRebWeaponKnife
+  - PizRebWeaponBat
+  - PizRebWeaponMachete
+
+- type: roleLoadout
+  id: JobPizRebFighter
+  groups:
+  - PizRebFighterJumpsuit
+  - PizRebFighterShoes
+  - PizRebFighterBack
+  - PizRebFighterHead
+  - PizRebFighterGloves
+  - PizRebFighterWeapon
+
+- type: loadout
+  id: PizRebJumpsuitGrey
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorGrey
+
+- type: loadout
+  id: PizRebJumpskirtGrey
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtColorGrey
+
+- type: loadout
+  id: PizRebJumpsuitBlack
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorBlack
+
+- type: loadout
+  id: PizRebJumpsuitRed
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorRed
+
+- type: loadout
+  id: PizRebJumpsuitGreen
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorGreen
+
+- type: loadout
+  id: PizRebShoesBlack
+  equipment:
+    shoes: ClothingShoesColorBlack
+
+- type: loadout
+  id: PizRebShoesJack
+  equipment:
+    shoes: ClothingShoesBootsJack
+
+- type: loadout
+  id: PizRebShoesWork
+  equipment:
+    shoes: ClothingShoesBootsWork
+
+- type: loadout
+  id: PizRebBackpack
+  equipment:
+    back: ClothingBackpack
+
+- type: loadout
+  id: PizRebSatchel
+  equipment:
+    back: ClothingBackpackSatchel
+
+- type: loadout
+  id: PizRebDuffel
+  equipment:
+    back: ClothingBackpackDuffel
+
+- type: loadout
+  id: PizRebHeadBeret
+  equipment:
+    head: ClothingHeadHatBeret
+
+- type: loadout
+  id: PizRebHeadFlatcap
+  equipment:
+    head: ClothingHeadHatGreyFlatcap
+
+- type: loadout
+  id: PizRebHeadCorpsoft
+  equipment:
+    head: ClothingHeadHatCorpsoft
+
+- type: loadout
+  id: PizRebGlovesFingerless
+  equipment:
+    gloves: ClothingHandsGlovesFingerless
+
+- type: loadout
+  id: PizRebGlovesBlack
+  equipment:
+    gloves: ClothingHandsGlovesColorBlack
+
+- type: loadout
+  id: PizRebGlovesLatex
+  equipment:
+    gloves: ClothingHandsGlovesLatex
+
+- type: loadout
+  id: PizRebWeaponKnife
+  inhand:
+  - CombatKnife
+
+- type: loadout
+  id: PizRebWeaponBat
+  inhand:
+  - BaseBallBat
+
+- type: loadout
+  id: PizRebWeaponMachete
+  inhand:
+  - Machete

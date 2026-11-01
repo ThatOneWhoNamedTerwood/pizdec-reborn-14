@@ -155,17 +155,18 @@
   - BasicRoundstartVariation
 
 - type: gamePreset
-  id: Deathmatch
+  id: PizRebDeathmatch
   alias:
-    - deathmatch
-    - dm
-  name: death-match-title
-  description: death-match-description
+    - pizrebdeathmatch
+    - pizdm
+  name: pizreb-deathmatch-title
+  description: pizreb-deathmatch-description
   maxPlayers: 15
   showInVote: true
   supportedMaps: DeathMatchMapPool
   rules:
-    - DeathMatch31
+    - PizRebDeathmatch
+    - PizRebDeathmatchTimer
 
 - type: gamePreset
   id: Nukeops

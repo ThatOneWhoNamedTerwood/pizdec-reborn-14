@@ -91,30 +91,6 @@
       prob: 0.3
 
 - type: entity
-  id: DeathMatch31
-  parent: BaseGameRule
-  components:
-  - type: DeathMatchRule
-    rewardSpawns: !type:AllSelector
-      children:
-      - id: HealingToolbox
-      - !type:GroupSelector
-        children:
-        - id: ClothingOuterArmorBasicSlim
-        - id: ClothingHeadHelmetBasic
-        - id: SoapNT
-        - id: Bola
-        - id: Spear
-        - id: ClothingShoesGaloshes
-        - id: FoodPieBananaCream
-        - id: Stimpack
-  - type: KillCalloutRule
-  - type: PointManager
-  - type: RespawnDeadRule
-  - type: RespawnTracker
-    respawnDelay: 5
-
-- type: entity
   id: InactivityTimeRestart
   parent: BaseGameRule
   components:

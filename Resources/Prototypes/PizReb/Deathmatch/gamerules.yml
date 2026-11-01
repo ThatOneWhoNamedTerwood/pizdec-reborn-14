@@ -1,0 +1,30 @@
+- type: entity
+  id: PizRebDeathmatch
+  parent: BaseGameRule
+  components:
+  - type: PizRebDeathmatchRule
+    respawnDelay: 5
+    healthTextOffset: -1.35
+    killStreaks:
+    - kills: 5
+      messages:
+      - pizreb-killstreak-5-0
+      - pizreb-killstreak-5-1
+      - pizreb-killstreak-5-2
+    - kills: 10
+      messages:
+      - pizreb-killstreak-10-0
+      - pizreb-killstreak-10-1
+      - pizreb-killstreak-10-2
+    - kills: 15
+      messages:
+      - pizreb-killstreak-15-0
+  - type: PointManager
+
+- type: entity
+  id: PizRebDeathmatchTimer
+  parent: BaseGameRule
+  components:
+  - type: MaxTimeRestartRule
+    roundMaxTime: 900
+    roundEndDelay: 10
