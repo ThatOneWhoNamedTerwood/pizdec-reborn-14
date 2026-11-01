@@ -1,4 +1,5 @@
 using System.Threading;
+using Content.Server.Chat.Managers;
 using Content.Shared.CCVar;
 using Content.Shared.Fluids.Components;
 using Content.Shared.Tag;
@@ -18,7 +19,10 @@ public sealed partial class TrashCleanupSystem : EntitySystem
 {
     private static readonly ProtoId<TagPrototype> TrashTag = "Trash";
 
+    private static readonly TimeSpan WarningLead = TimeSpan.FromSeconds(30);
+
     [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private IChatManager _chat = default!;
     [Dependency] private SharedContainerSystem _containers = default!;
     [Dependency] private TagSystem _tags = default!;
 
@@ -62,6 +66,11 @@ public sealed partial class TrashCleanupSystem : EntitySystem
         if (!_enabled)
             return;
 
+        var warningDelay = _interval - WarningLead;
+
+        if (warningDelay > TimeSpan.Zero)
+            Timer.Spawn(warningDelay, Warn, _timerCancel.Token);
+
         Timer.Spawn(_interval, () =>
         {
             Cleanup();
@@ -69,13 +78,18 @@ public sealed partial class TrashCleanupSystem : EntitySystem
         }, _timerCancel.Token);
     }
 
+    private void Warn()
+    {
+        _chat.DispatchServerAnnouncement(Loc.GetString("trash-cleanup-warning"));
+    }
+
     public void Cleanup()
     {
         var trash = CleanupTrash();
         var puddles = CleanupPuddles();
 
-        if (trash > 0 || puddles > 0)
-            _sawmill.Info($"Убрано мусора: {trash}, луж: {puddles}");
+        _chat.DispatchServerAnnouncement(Loc.GetString("trash-cleanup-done", ("trash", trash), ("puddles", puddles)));
+        _sawmill.Info($"Убрано мусора: {trash}, луж: {puddles}");
     }
 
     private int CleanupTrash()

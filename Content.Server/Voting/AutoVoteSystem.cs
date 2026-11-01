@@ -1,6 +1,5 @@
 using System;
 using System.Linq;
-using Content.Server.GameTicking;
 using Content.Server.Maps;
 using Content.Server.Voting.Managers;
 using Content.Shared.CCVar;
@@ -22,7 +21,6 @@ public sealed partial class AutoVoteSystem : EntitySystem
     [Dependency] private IGameMapManager _mapManager = default!;
     [Dependency] private IPlayerManager _playerManager = default!;
     [Dependency] private IVoteManager _voteManager = default!;
-    [Dependency] private ServerGameTicker _ticker = default!;
 
     private bool _enabled = true;
     private bool _running;
@@ -52,8 +50,6 @@ public sealed partial class AutoVoteSystem : EntitySystem
 
         _running = true;
 
-        _ticker.DelayStart(TimeSpan.FromSeconds(_cfg.GetCVar(CCVars.VoteTimerPreset) + 5));
-
         if (!TryCreateVote(StandardVoteType.Preset, out var vote))
         {
             StartMapVote();
@@ -65,8 +61,6 @@ public sealed partial class AutoVoteSystem : EntitySystem
 
     private void StartMapVote()
     {
-        _ticker.DelayStart(TimeSpan.FromSeconds(_cfg.GetCVar(CCVars.VoteTimerMap) + 5));
-
         if (!TryCreateVote(StandardVoteType.Map, out var vote))
         {
             _running = false;
