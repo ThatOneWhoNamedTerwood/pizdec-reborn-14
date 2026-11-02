@@ -5,7 +5,10 @@ using Content.Server.Construction.Components;
 using Content.Server.Power.Components;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Interaction;
+using Content.Shared.Mobs.Components;
+using Content.Shared.PizReb.Boss;
 using Content.Shared.PizReb.Gateway;
+using Robust.Shared.ContentPack;
 using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
@@ -29,11 +32,24 @@ public sealed class GatewayTest : GameTest
         var prototypes = server.ResolveDependency<IPrototypeManager>();
         await server.WaitPost(() =>
         {
+            var res = server.ResolveDependency<IResourceManager>();
+            var options = new Robust.Shared.EntitySerialization.DeserializationOptions { InitializeMaps = true };
             foreach (var mission in prototypes.EnumeratePrototypes<GatewayMissionPrototype>())
             {
-                mapSystem.CreateMap(out var mapId);
-                Assert.That(mapLoader.TryLoadGrid(mapId, mission.MapPath, out _), $"Failed to load {mission.MapPath}");
-                mapSystem.DeleteMap(mapId);
+                var text = res.ContentFileReadAllText(mission.MapPath.ToString());
+                var index = text.IndexOf("category:", StringComparison.Ordinal);
+                var isMap = index >= 0 && text.Substring(index, Math.Min(32, text.Length - index)).Contains("Map");
+                if (isMap)
+                {
+                    Assert.That(mapLoader.TryLoadMap(mission.MapPath, out var loadedMap, out _, options), $"Failed to load {mission.MapPath}");
+                    mapSystem.DeleteMap(loadedMap!.Value.Comp.MapId);
+                }
+                else
+                {
+                    mapSystem.CreateMap(out var mapId);
+                    Assert.That(mapLoader.TryLoadGrid(mapId, mission.MapPath, out _, options), $"Failed to load {mission.MapPath}");
+                    mapSystem.DeleteMap(mapId);
+                }
             }
         });
     }
@@ -142,6 +158,8 @@ public sealed class GatewayTest : GameTest
         await server.WaitPost(() =>
         {
             var gateway = entMan.GetComponent<ExpeditionGatewayComponent>(gate);
+            gateway.Offered.Clear();
+            gateway.Offered.Add("GatewayMissionCarp");
             entMan.EventBus.RaiseLocalEvent(gate, new ExpeditionGatewayClaimMissionMessage
             {
                 Mission = "GatewayMissionCarp",
@@ -163,10 +181,84 @@ public sealed class GatewayTest : GameTest
             Assert.That(portal.Contacts.Count, Is.GreaterThan(0), "The gateway portal does not collide with mobs");
         });
     }
+
+    [Test]
+    public async Task KillMissionSpawnMarkerTest()
+    {
+        var pair = Pair;
+        var server = pair.Server;
+        var entMan = server.EntMan;
+        var testMap = await pair.CreateTestMap();
+        EntityUid gate = default;
+        await server.WaitPost(() =>
+        {
+            gate = entMan.SpawnEntity("ExpeditionGateway", testMap.GridCoords);
+            entMan.GetComponent<ApcPowerReceiverComponent>(gate).NeedsPower = false;
+        });
+        await server.WaitRunTicks(3);
+        await server.WaitAssertion(() =>
+        {
+            var gateway = entMan.GetComponent<ExpeditionGatewayComponent>(gate);
+            gateway.Offered.Clear();
+            gateway.Offered.Add("GatewayMissionCarp");
+            entMan.EventBus.RaiseLocalEvent(gate, new ExpeditionGatewayClaimMissionMessage
+            {
+                Mission = "GatewayMissionCarp",
+                Actor = gate,
+            });
+            Assert.That(gateway.Mission, Is.Not.Null);
+            var mission = entMan.GetComponent<GatewayMissionComponent>(gateway.Mission!.Value);
+            Assert.That(mission.Objective, Is.Not.Null);
+            Assert.That(entMan.HasComponent<MobStateComponent>(mission.Objective!.Value), Is.True);
+            var xform = entMan.GetComponent<TransformComponent>(mission.Objective.Value);
+            Assert.That(xform.LocalPosition.X, Is.EqualTo(20.5f).Within(0.6f));
+            Assert.That(xform.LocalPosition.Y, Is.EqualTo(20.5f).Within(0.6f));
+        });
+    }
+
+    [Test]
+    public async Task BurstManMissionSpawnTest()
+    {
+        var pair = Pair;
+        var server = pair.Server;
+        var entMan = server.EntMan;
+        var testMap = await pair.CreateTestMap();
+        EntityUid gate = default;
+        await server.WaitPost(() =>
+        {
+            gate = entMan.SpawnEntity("ExpeditionGateway", testMap.GridCoords);
+            entMan.GetComponent<ApcPowerReceiverComponent>(gate).NeedsPower = false;
+        });
+        await server.WaitRunTicks(3);
+        await server.WaitAssertion(() =>
+        {
+            var gateway = entMan.GetComponent<ExpeditionGatewayComponent>(gate);
+            gateway.Offered.Clear();
+            gateway.Offered.Add("GatewayMissionBurstMan");
+            entMan.EventBus.RaiseLocalEvent(gate, new ExpeditionGatewayClaimMissionMessage
+            {
+                Mission = "GatewayMissionBurstMan",
+                Actor = gate,
+            });
+            Assert.That(gateway.Mission, Is.Not.Null);
+            var mission = entMan.GetComponent<GatewayMissionComponent>(gateway.Mission!.Value);
+            Assert.That(mission.Objective, Is.Not.Null);
+            Assert.That(entMan.HasComponent<BossComponent>(mission.Objective!.Value), Is.True);
+            var missionMapId = entMan.GetComponent<TransformComponent>(gateway.Mission.Value).MapID;
+            var markerQuery = entMan.EntityQueryEnumerator<GatewayMissionKillSpawnComponent, TransformComponent>();
+            EntityCoordinates? markerCoords = null;
+            while (markerQuery.MoveNext(out _, out _, out var markerXform))
+            {
+                if (markerXform.MapID != missionMapId)
+                    continue;
+                markerCoords = markerXform.Coordinates;
+                break;
+            }
+            Assert.That(markerCoords, Is.Not.Null);
+            var objectiveXform = entMan.GetComponent<TransformComponent>(mission.Objective.Value);
+            Assert.That(objectiveXform.Coordinates, Is.EqualTo(markerCoords!.Value));
+        });
+    }
 }
-
-
-
-
 
 

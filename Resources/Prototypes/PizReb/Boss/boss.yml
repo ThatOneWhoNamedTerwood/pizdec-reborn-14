@@ -1,0 +1,228 @@
+﻿- type: boss
+  id: TenHourBurstMan
+  name: boss-10hbm-name
+  icon:
+    sprite: PizReb/Mobs/10hbm.rsi
+    state: icon
+  displayRange: 35
+  phases:
+  - threshold: 1
+    music: /Audio/PizReb/Boss/10hbm/theme1.ogg
+    spriteState: 10hbm
+    speedMultiplier: 1
+    damageTakenMultiplier: 1
+  - threshold: 0.5
+    music: /Audio/PizReb/Boss/10hbm/theme2.ogg
+    spriteState: 10hbm
+    speedMultiplier: 1.15
+    damageTakenMultiplier: 2
+    transitionDuration: 6
+    transitionSpriteState: 10hbm_drink
+    transitionSound: /Audio/PizReb/Boss/10hbm/laugh.ogg
+
+- type: entity
+  parent: MarkerBase
+  id: BossDarknessBlock
+  name: darkness
+  components:
+  - type: Sprite
+    layers:
+    - state: ai
+  - type: BossDarkness
+
+- type: entity
+  parent: MarkerBase
+  id: BossPhaseTwoMarker
+  name: boss phase two marker
+  components:
+  - type: Sprite
+    layers:
+    - state: pink
+  - type: BossPhaseMarker
+
+- type: entity
+  id: BossShockwave
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    scale: 3, 3
+    layers:
+    - state: blastwave
+      shader: unshaded
+  - type: TimedDespawn
+    lifetime: 0.7
+  - type: Transform
+
+- type: entity
+  parent: BaseBullet
+  id: BossArcaneBarrage
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    layers:
+    - state: arcane_barrage
+      shader: unshaded
+  - type: Projectile
+    angle: -90
+    damage:
+      types:
+        Shock: 35
+  - type: StaminaDamageOnCollide
+    damage: 15
+
+- type: entity
+  parent: SimpleSpaceMobBase
+  id: MobBossHoloparasite
+  name: holoparasite
+  description: A hostile holographic guardian.
+  components:
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: NpcFactionMember
+    factions:
+    - TenHourBurstBoss
+  - type: Sprite
+    sprite: Mobs/Aliens/Guardians/guardians.rsi
+    layers:
+    - state: magic_base
+    - state: magic_flare
+      shader: unshaded
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.4
+        density: 80
+        mask:
+        - FlyingMobMask
+        layer:
+        - FlyingMobLayer
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      60: Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3.5
+    baseSprintSpeed: 4.5
+  - type: MeleeWeapon
+    altDisarm: false
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      types:
+        Slash: 25
+
+- type: entity
+  parent: SimpleSpaceMobBase
+  id: MobTenHourBurstMan
+  name: 10 hours burst man
+  description: A tall dark figure. It does not stop.
+  components:
+  - type: Sprite
+    sprite: PizReb/Mobs/10hbm.rsi
+    layers:
+    - map: ["enum.TenHourBurstManVisualLayers.Base"]
+      state: 10hbm
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.TenHourBurstManVisuals.State:
+        enum.TenHourBurstManVisualLayers.Base:
+          Default: { state: 10hbm }
+          Darkheart: { state: darkheart }
+          Twilight: { state: peaceforall }
+          Shotgun: { state: shotgun }
+          PeaceForAll: { state: peaceforall }
+          Drink: { state: 10hbm_drink }
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.45
+        density: 200
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      1500: Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2.8
+    baseSprintSpeed: 3.6
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: NpcFactionMember
+    factions:
+    - TenHourBurstBoss
+  - type: Boss
+    boss: TenHourBurstMan
+  - type: TenHourBurstMan
+    abilityGap: 1.5
+    aggroRange: 40
+    darkheartCooldown: 10
+    darkheartRange: 3
+    darkheartDashes: 3
+    darkheartGap: 0.5
+    darkheartDamage: 25
+    darkheartHeal: 75
+    darkheartSpeed: 16
+    darkheartSound: /Audio/PizReb/Boss/10hbm/darkheart.ogg
+    twilightCooldown: 20
+    twilightRange: 4.5
+    twilightDelay: 1.1
+    twilightRadius: 3.5
+    twilightDamage: 45
+    twilightStun: 2
+    twilightSlow: 0.85
+    twilightSound: /Audio/PizReb/Boss/10hbm/twilight.ogg
+    holoparasiteCooldown: 15
+    holoparasiteRange: 5
+    holoparasiteDuration: 5
+    holoparasiteSlow: 0.9
+    holoparasiteSound: /Audio/PizReb/Boss/10hbm/holoparasite.ogg
+    vampirismEnabled: false
+    vampirismCooldown: 14
+    vampirismRange: 3
+    vampirismDelay: 0.5
+    vampirismDashes: 2
+    vampirismGap: 1
+    vampirismMissTime: 2.5
+    vampirismSpeed: 16
+    vampirismSound: /Audio/PizReb/Boss/10hbm/vampirism.ogg
+    shotgunCooldown: 9
+    shotgunMinRange: 3.5
+    shotgunMaxRange: 22
+    shotgunShots: 4
+    shotgunGap: 0.5
+    shotgunPellets: 6
+    shotgunSpread: 7
+    shotgunSlow: 0.25
+    shotgunProjectileSpeed: 25
+    shotgunSound: /Audio/PizReb/Boss/10hbm/shotgun.ogg
+    grandValleyCooldown: 9
+    grandValleyMinRange: 3.5
+    grandValleyMaxRange: 22
+    grandValleyShots: 4
+    grandValleyGap: 0.25
+    grandValleyProjectileSpeed: 22
+    grandValleySound: /Audio/PizReb/Boss/10hbm/grandvalley.ogg
+    strongLeftCooldown: 10
+    strongLeftRange: 1.6
+    strongLeftDamage: 45
+    strongLeftStun: 1.2
+    strongLeftPush: 9
+    strongLeftChase: 3
+    strongLeftSound: /Audio/PizReb/Boss/10hbm/strongleft.ogg
+    deathSound: /Audio/PizReb/Boss/10hbm/death.ogg
+
+
+
+

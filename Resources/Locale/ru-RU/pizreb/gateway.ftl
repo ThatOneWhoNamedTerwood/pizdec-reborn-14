@@ -38,3 +38,6 @@ ent-GatewayMissionSpawnPoint = точка появления гейта
     .desc = Отмечает, куда прибывают путешественники через гейт.
 ent-GatewayMissionObjectiveSpawn = точка появления цели гейта
     .desc = Отмечает, где появляется цель миссии.
+gateway-mission-burstman-name = 10 Hours Burst Man
+gateway-mission-burstman-desc = Тёмная арена. Кто-то высокий уже ждёт вас и не собирается отпускать.
+gateway-mission-burstman-goal = Убейте 10 Hours Burst Man и вернитесь через гейт.

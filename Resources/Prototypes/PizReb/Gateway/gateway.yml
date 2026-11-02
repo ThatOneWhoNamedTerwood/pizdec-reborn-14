@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   parent: BaseStructure
   id: ExpeditionGateway
   name: expedition gateway
@@ -74,6 +74,9 @@
   id: GatewayMissionSpawnPoint
   name: gateway mission spawn point
   components:
+  - type: Sprite
+    layers:
+    - state: green
   - type: GatewayMissionSpawnPoint
 
 - type: entity
@@ -81,7 +84,19 @@
   id: GatewayMissionObjectiveSpawn
   name: gateway mission objective spawn
   components:
+  - type: Sprite
+    layers:
+    - state: blue
   - type: GatewayMissionObjectiveSpawn
+- type: entity
+  parent: MarkerBase
+  id: GatewayMissionKillSpawn
+  name: gateway mission kill spawn
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+  - type: GatewayMissionKillSpawn
 
 - type: entity
   parent: BaseStructure
@@ -137,3 +152,4 @@
   - type: ApcPowerReceiver
     needsPower: false
   - type: GatewayMissionObjectiveDevice
+

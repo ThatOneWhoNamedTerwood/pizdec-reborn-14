@@ -1,4 +1,4 @@
-namespace Content.Server.PizReb.Gateway;
+﻿namespace Content.Server.PizReb.Gateway;
 
 [RegisterComponent]
 public sealed partial class GatewayPortalComponent : Component
@@ -29,4 +29,8 @@ public sealed partial class GatewayMissionSpawnPointComponent : Component;
 public sealed partial class GatewayMissionObjectiveSpawnComponent : Component;
 
 [RegisterComponent]
+public sealed partial class GatewayMissionKillSpawnComponent : Component;
+
+[RegisterComponent]
 public sealed partial class GatewayMissionObjectiveDeviceComponent : Component;
+

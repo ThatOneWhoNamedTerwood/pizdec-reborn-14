@@ -38,3 +38,6 @@ ent-GatewayMissionSpawnPoint = gateway mission spawn point
     .desc = Marks where gateway travellers arrive.
 ent-GatewayMissionObjectiveSpawn = gateway mission objective spawn
     .desc = Marks where the mission objective appears.
+gateway-mission-burstman-name = 10 Hours Burst Man
+gateway-mission-burstman-desc = A dark arena. Something tall is already waiting for you, and it does not intend to let you leave.
+gateway-mission-burstman-goal = Kill the ten hours burst man and return through the gateway.

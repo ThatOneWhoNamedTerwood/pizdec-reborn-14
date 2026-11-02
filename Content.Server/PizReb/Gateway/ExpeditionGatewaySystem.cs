@@ -1,4 +1,4 @@
-using System.Linq;
+﻿using System.Linq;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Chat.Managers;
 using Content.Server.Power.Components;
@@ -15,11 +15,13 @@ using Robust.Server.GameObjects;
 using Robust.Server.Player;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.EntitySerialization;
+using Robust.Shared.ContentPack;
 using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Player;
+using Robust.Shared.Utility;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
@@ -33,6 +35,7 @@ public sealed partial class ExpeditionGatewaySystem : EntitySystem
     [Dependency] private IPlayerManager _playerManager = default!;
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private MapLoaderSystem _mapLoader = default!;
+    [Dependency] private IResourceManager _resource = default!;
     [Dependency] private MobStateSystem _mobState = default!;
     [Dependency] private PowerReceiverSystem _power = default!;
     [Dependency] private SharedAmbientSoundSystem _ambience = default!;
@@ -131,13 +134,34 @@ public sealed partial class ExpeditionGatewaySystem : EntitySystem
             _popup.PopupEntity(Loc.GetString("gateway-mission-failed"), ent.Owner, args.Actor);
     }
 
+    private bool IsMapCategory(ResPath path)
+    {
+        var text = _resource.ContentFileReadAllText(path.ToString());
+        var index = text.IndexOf("category:", StringComparison.Ordinal);
+        return index >= 0 && text.Substring(index, Math.Min(32, text.Length - index)).Contains("Map");
+    }
+
     private bool TryStartMission(Entity<ExpeditionGatewayComponent> ent, GatewayMissionPrototype proto)
     {
-        if (!_mapLoader.TryLoadGrid(proto.MapPath, out var mapEnt, out var gridEnt,
-                new DeserializationOptions { InitializeMaps = true }))
+        var options = new DeserializationOptions { InitializeMaps = true };
+        Entity<MapComponent>? mapEnt;
+        if (IsMapCategory(proto.MapPath))
         {
-            Log.Error($"Failed to load gateway mission map {proto.MapPath}");
-            return false;
+            if (!_mapLoader.TryLoadMap(proto.MapPath, out var loaded, out _, options))
+            {
+                Log.Error($"Failed to load gateway mission map {proto.MapPath}");
+                return false;
+            }
+            mapEnt = loaded;
+        }
+        else
+        {
+            if (!_mapLoader.TryLoadGrid(proto.MapPath, out var loadedGrid, out _, options))
+            {
+                Log.Error($"Failed to load gateway mission map {proto.MapPath}");
+                return false;
+            }
+            mapEnt = loadedGrid;
         }
         var mapUid = mapEnt.Value.Owner;
         var mapId = mapEnt.Value.Comp.MapId;
@@ -188,17 +212,27 @@ public sealed partial class ExpeditionGatewaySystem : EntitySystem
 
     private void SpawnObjective(EntityUid mapUid, MapId mapId, GatewayMissionPrototype proto, GatewayMissionComponent mission)
     {
-        var query = EntityQueryEnumerator<GatewayMissionObjectiveSpawnComponent, TransformComponent>();
+        EntityCoordinates? coords = null;
+        if (proto.Objective == GatewayMissionObjective.Kill)
+            coords = FindMarker<GatewayMissionKillSpawnComponent>(mapId);
+        coords ??= FindMarker<GatewayMissionObjectiveSpawnComponent>(mapId);
+        if (coords == null)
+            return;
+        var objective = Spawn(proto.ObjectiveEntity, coords.Value);
+        if (proto.Objective == GatewayMissionObjective.Activate)
+            EnsureComp<GatewayMissionObjectiveDeviceComponent>(objective);
+        mission.Objective = objective;
+    }
+
+    private EntityCoordinates? FindMarker<T>(MapId mapId) where T : IComponent
+    {
+        var query = EntityQueryEnumerator<T, TransformComponent>();
         while (query.MoveNext(out _, out _, out var xform))
         {
-            if (xform.MapID != mapId)
-                continue;
-            var objective = Spawn(proto.ObjectiveEntity, xform.Coordinates);
-            if (proto.Objective == GatewayMissionObjective.Activate)
-                EnsureComp<GatewayMissionObjectiveDeviceComponent>(objective);
-            mission.Objective = objective;
-            return;
+            if (xform.MapID == mapId)
+                return xform.Coordinates;
         }
+        return null;
     }
 
     private void OnGatewayPortalCollide(Entity<GatewayPortalComponent> ent, ref StartCollideEvent args)
@@ -414,6 +448,7 @@ public sealed partial class ExpeditionGatewaySystem : EntitySystem
         }
     }
 }
+
 
 
 

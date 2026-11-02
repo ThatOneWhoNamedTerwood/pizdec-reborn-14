@@ -1,4 +1,4 @@
-meta:
+﻿meta:
   format: 7
   category: Grid
   entityCount: 115
@@ -624,6 +624,13 @@ entities:
     - type: Transform
       parent: 10
       pos: 16.5,16.5
+- proto: GatewayMissionKillSpawn
+  entities:
+  - uid: 400
+    components:
+    - type: Transform
+      parent: 10
+      pos: 20.5,20.5
 - proto: GatewayReturnPortal
   entities:
   - uid: 213
@@ -631,3 +638,4 @@ entities:
     - type: Transform
       parent: 10
       pos: 16.5,3.5
+

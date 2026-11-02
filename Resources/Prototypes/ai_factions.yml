@@ -14,6 +14,7 @@
 - type: npcFaction
   id: NanoTrasen
   hostile:
+  - TenHourBurstBoss
   - SimpleHostile
   - Syndicate
   - Xeno
@@ -166,3 +167,4 @@
   # cause they are hostile to them
   - SimpleHostile
   - AllHostile
+

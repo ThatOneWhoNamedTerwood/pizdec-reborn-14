@@ -1,0 +1,35 @@
+﻿{
+  "version": 1,
+  "license": "MIT or idk",
+  "copyright": "mhwaaahhh >w<",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
+    },
+    {
+      "name": "10hbm",
+      "directions": 4
+    },
+    {
+      "name": "10hbm_drink",
+      "directions": 4
+    },
+    {
+      "name": "darkheart",
+      "directions": 4
+    },
+    {
+      "name": "peaceforall",
+      "directions": 4
+    },
+    {
+      "name": "shotgun",
+      "directions": 4
+    }
+  ]
+}
+

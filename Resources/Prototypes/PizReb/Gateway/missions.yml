@@ -76,3 +76,24 @@
   - WeaponPistolMk58
   - SpaceCash
 
+- type: gatewayMission
+  id: GatewayMissionBurstMan
+  name: gateway-mission-burstman-name
+  description: gateway-mission-burstman-desc
+  goal: gateway-mission-burstman-goal
+  mapPath: /Maps/PizReb/Gateway/boss_10hbm.yml
+  preview:
+    sprite: PizReb/Mobs/10hbm.rsi
+    state: icon
+  objective: Kill
+  objectiveEntity: MobTenHourBurstMan
+  difficulty: Hard
+  rewards:
+  - SpaceCash
+  - SpaceCash
+  - SpaceCash
+  - SpaceCash
+  - SpaceCash
+  - SpaceCash
+
+
