@@ -1,0 +1,51 @@
+﻿<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                      Title="{Loc 'gateway-mission-window-title'}"
+                      SetSize="800 560"
+                      Resizable="False">
+    <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True">
+        <BoxContainer Orientation="Horizontal" HorizontalExpand="True" VerticalExpand="True" Margin="10 8 10 0" SeparationOverride="8">
+            <BoxContainer Orientation="Vertical" MinWidth="340" MaxWidth="340" VerticalExpand="True">
+                <PanelContainer StyleClasses="BackgroundPanel" HorizontalExpand="True" VerticalExpand="True">
+                    <ScrollContainer Name="CardsScroll" HScrollEnabled="False" HorizontalExpand="True" VerticalExpand="True">
+                        <BoxContainer Name="CardsContainer" Orientation="Vertical" HorizontalExpand="True" Margin="6"/>
+                    </ScrollContainer>
+                </PanelContainer>
+            </BoxContainer>
+            <PanelContainer StyleClasses="PanelDeep" HorizontalExpand="True" VerticalExpand="True">
+                <BoxContainer Orientation="Vertical" Margin="14 10 14 10" HorizontalExpand="True" VerticalExpand="True" SeparationOverride="6">
+                    <Label Name="MissionTitle" StyleClasses="LabelHeading"/>
+                    <Label Name="MissionDifficulty" StyleClasses="LabelSubText"/>
+                    <controls:Separator StyleClasses="LowDivider"/>
+                    <TextureRect Name="MissionImage" MinSize="128 128" Stretch="KeepAspectCentered" HorizontalAlignment="Center"/>
+                    <RichTextLabel Name="MissionDescription"/>
+                    <Label Text="{Loc 'gateway-mission-window-goal'}" StyleClasses="LabelKeyText"/>
+                    <RichTextLabel Name="MissionGoal"/>
+                    <Label Text="{Loc 'gateway-mission-window-reward'}" StyleClasses="LabelKeyText"/>
+                    <RichTextLabel Name="MissionReward"/>
+                    <Control VerticalExpand="True"/>
+                    <Label Name="CooldownLabel" HorizontalAlignment="Center" Visible="False"/>
+                    <Button Name="AcceptButton" Text="{Loc 'gateway-mission-window-accept'}" HorizontalExpand="True" MinHeight="34"/>
+                </BoxContainer>
+            </PanelContainer>
+        </BoxContainer>
+        <BoxContainer Orientation="Vertical" Margin="10 0 10 0">
+            <controls:Separator StyleClasses="LowDivider" Margin="0 4 0 4"/>
+            <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+                <Label Text="{Loc 'gateway-mission-window-rotation'}" StyleClasses="LabelWeak" Margin="0 0 6 0"/>
+                <ProgressBar Name="NextOfferBar" HorizontalExpand="True" MinValue="0" MaxValue="1" VerticalAlignment="Center">
+                    <ProgressBar.ForegroundStyleBoxOverride>
+                        <gfx:StyleBoxFlat BackgroundColor="#8FBF3F"/>
+                    </ProgressBar.ForegroundStyleBoxOverride>
+                </ProgressBar>
+                <Label Name="NextOfferText" StyleClasses="LabelWeak" Margin="6 0 6 0" MinWidth="44"/>
+                <TextureRect StyleClasses="NTLogoDark" Stretch="KeepAspectCentered" VerticalAlignment="Center" HorizontalAlignment="Right" SetSize="19 19"/>
+            </BoxContainer>
+        </BoxContainer>
+    </BoxContainer>
+</controls:FancyWindow>
+
+
+
+

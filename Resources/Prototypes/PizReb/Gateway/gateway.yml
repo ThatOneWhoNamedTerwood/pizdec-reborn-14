@@ -1,0 +1,139 @@
+- type: entity
+  parent: BaseStructure
+  id: ExpeditionGateway
+  name: expedition gateway
+  description: A mysterious gateway that opens a passage to far-flung places.
+  components:
+  - type: Sprite
+    sprite: Structures/Machines/gateway.rsi
+    noRot: true
+    layers:
+    - state: frame
+    - state: on
+      shader: unshaded
+      map: ["enum.ExpeditionGatewayLayers.Power"]
+      visible: false
+    - state: portal
+      shader: unshaded
+      map: ["enum.ExpeditionGatewayLayers.Portal"]
+      visible: false
+  - type: GenericVisualizer
+    visuals:
+      enum.ExpeditionGatewayVisuals.Active:
+        enum.ExpeditionGatewayLayers.Power:
+          True: { visible: true }
+          False: { visible: false }
+        enum.ExpeditionGatewayLayers.Portal:
+          True: { visible: true }
+          False: { visible: false }
+  - type: InteractionOutline
+  - type: Physics
+    bodyType: Static
+  - type: Transform
+    noRot: true
+  - type: Fixtures
+    fixtures:
+      portalFixture:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.48,0.25,0.48"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        hard: false
+  - type: Appearance
+  - type: ApcPowerReceiver
+    powerLoad: 1
+  - type: ExtensionCableReceiver
+  - type: LightningTarget
+    priority: 1
+  - type: ExpeditionGateway
+  - type: ActivatableUI
+    key: enum.ExpeditionGatewayUiKey.Key
+  - type: ActivatableUIRequiresAccess
+  - type: UserInterface
+    interfaces:
+      enum.ExpeditionGatewayUiKey.Key:
+        type: ExpeditionGatewayBoundUserInterface
+  - type: AccessReader
+    access: [["Cargo"], ["Research"], ["Command"]]
+  - type: AmbientSound
+    enabled: false
+    sound:
+      path: /Audio/Ambience/ambi_gateway.ogg
+    range: 5
+    volume: 8
+  - type: PointLight
+    enabled: false
+    radius: 3
+    energy: 1
+
+- type: entity
+  parent: MarkerBase
+  id: GatewayMissionSpawnPoint
+  name: gateway mission spawn point
+  components:
+  - type: GatewayMissionSpawnPoint
+
+- type: entity
+  parent: MarkerBase
+  id: GatewayMissionObjectiveSpawn
+  name: gateway mission objective spawn
+  components:
+  - type: GatewayMissionObjectiveSpawn
+
+- type: entity
+  parent: BaseStructure
+  id: GatewayReturnPortal
+  name: gateway return portal
+  description: A gateway leading back to the station.
+  components:
+  - type: Sprite
+    sprite: Structures/Machines/gateway.rsi
+    noRot: true
+    layers:
+    - state: frame
+    - state: on
+      shader: unshaded
+    - state: portal
+      shader: unshaded
+  - type: InteractionOutline
+  - type: Physics
+    bodyType: Static
+  - type: Transform
+    noRot: true
+  - type: Fixtures
+    fixtures:
+      portalFixture:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.48,0.25,0.48"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        hard: false
+  - type: GatewayMissionReturnPortal
+  - type: PointLight
+    enabled: true
+    radius: 3
+    energy: 1
+  - type: AmbientSound
+    enabled: true
+    sound:
+      path: /Audio/Ambience/ambi_gateway.ogg
+    range: 5
+    volume: 8
+
+- type: entity
+  parent: BaseComputer
+  id: GatewayMissionTerminal
+  name: gateway terminal
+  description: A terminal linked to the gateway. Activating it completes the mission.
+  components:
+  - type: ComputerVisuals
+    stateScreen: teleport
+  - type: ApcPowerReceiver
+    needsPower: false
+  - type: GatewayMissionObjectiveDevice

@@ -1,0 +1,78 @@
+﻿- type: gatewayMissionDifficulty
+  id: Easy
+  name: gateway-mission-difficulty-easy
+  color: "#63c46b"
+
+- type: gatewayMissionDifficulty
+  id: Moderate
+  name: gateway-mission-difficulty-moderate
+  color: "#d8c245"
+
+- type: gatewayMissionDifficulty
+  id: Hard
+  name: gateway-mission-difficulty-hard
+  color: "#d1584f"
+
+- type: gatewayMission
+  id: GatewayMissionCarp
+  name: gateway-mission-carp-name
+  description: gateway-mission-carp-desc
+  goal: gateway-mission-carp-goal
+  mapPath: /Maps/PizReb/Gateway/mission1.yml
+  preview:
+    sprite: Mobs/Aliens/Carps/space.rsi
+    state: alive
+  objective: Kill
+  objectiveEntity: MobCarp
+  difficulty: Easy
+  rewards:
+  - SpaceCash
+  - SpaceCash
+  - SpaceCash
+
+- type: gatewayMission
+  id: GatewayMissionDisk
+  name: gateway-mission-disk-name
+  description: gateway-mission-disk-desc
+  goal: gateway-mission-disk-goal
+  mapPath: /Maps/PizReb/Gateway/mission2.yml
+  preview:
+    sprite: Objects/Specific/Research/researchdisk.rsi
+    state: icon
+  objective: Retrieve
+  objectiveEntity: ResearchDisk
+  difficulty: Moderate
+  rewards:
+  - AnomalyCorePyroclastic
+
+- type: gatewayMission
+  id: GatewayMissionTerminal
+  name: gateway-mission-terminal-name
+  description: gateway-mission-terminal-desc
+  goal: gateway-mission-terminal-goal
+  mapPath: /Maps/PizReb/Gateway/mission3.yml
+  preview:
+    sprite: Structures/Machines/computers.rsi
+    state: teleport
+  objective: Activate
+  objectiveEntity: GatewayMissionTerminal
+  difficulty: Moderate
+  rewards:
+  - ClothingBackpackHolding
+
+- type: gatewayMission
+  id: GatewayMissionXeno
+  name: gateway-mission-xeno-name
+  description: gateway-mission-xeno-desc
+  goal: gateway-mission-xeno-goal
+  mapPath: /Maps/PizReb/Gateway/mission4.yml
+  preview:
+    sprite: Mobs/Aliens/Xenos/burrower.rsi
+    state: running
+  objective: Kill
+  objectiveEntity: MobXeno
+  difficulty: Hard
+  rewards:
+  - WeaponPistolMk58
+  - SpaceCash
+
