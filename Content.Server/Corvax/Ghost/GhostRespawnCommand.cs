@@ -7,7 +7,7 @@ using Robust.Shared.IoC;
 namespace Content.Server.Corvax.Ghost;
 
 [AnyCommand]
-public sealed class GhostRespawnCommand : IConsoleCommand
+public sealed partial class GhostRespawnCommand : IConsoleCommand
 {
     [Dependency] private IEntityManager _ent = default!;
 
