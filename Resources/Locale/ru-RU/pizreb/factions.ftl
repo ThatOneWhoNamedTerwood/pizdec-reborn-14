@@ -1,0 +1,30 @@
+department-PizRebNanotrasen = Нанотрейзен
+department-PizRebNanotrasen-description = Научная фракция. Изучает артефакты и аномалии.
+department-PizRebSyndicate = Синдикат
+department-PizRebSyndicate-description = Мешает НТ, ворует технологии и данные.
+department-PizRebGorlex = Мародёры Горлекса
+department-PizRebGorlex-description = Самые боевые и отбитые. Грабить и взрывать.
+department-PizRebPirates = Пираты
+department-PizRebPirates-description = Крадут дорогой хлам и поднимают деньги.
+department-PizRebIndependent = Независимые
+department-PizRebIndependent-description = Делают что угодно, но хуже специализированных фракций.
+
+job-name-pizreb-faction-nanotrasen = Экспедитор НТ
+job-description-pizreb-faction-nanotrasen = Рядовой член научной экспедиции.
+job-name-pizreb-faction-syndicate = Агент
+job-description-pizreb-faction-syndicate = Рядовой член диверсионной группы.
+job-name-pizreb-faction-gorlex = Оперативник
+job-description-pizreb-faction-gorlex = Рядовой боец мародёров.
+job-name-pizreb-faction-pirates = Флибустьер
+job-description-pizreb-faction-pirates = Рядовой член пиратской банды.
+job-name-pizreb-faction-independent = Авантюрист
+job-description-pizreb-faction-independent = Одиночка без фракции.
+
+job-name-pizreb-leader-nanotrasen = Директор НТ
+job-description-pizreb-leader-nanotrasen = Глава экспедиции Нанотрейзен в секторе.
+job-name-pizreb-leader-syndicate = Координатор
+job-description-pizreb-leader-syndicate = Координатор операций Синдиката.
+job-name-pizreb-leader-gorlex = Представитель Синдиката
+job-description-pizreb-leader-gorlex = Представитель мародёров Горлекса.
+job-name-pizreb-leader-pirates = Адмирал флотилии
+job-description-pizreb-leader-pirates = Командующий пиратской флотилией.

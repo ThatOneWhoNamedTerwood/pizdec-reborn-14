@@ -38,6 +38,7 @@ public sealed class BossTest : GameTest
             Assert.That(bossComponent.Phase, Is.EqualTo(0));
             Assert.That(entMan.HasComponent<Content.Shared.Body.Components.BloodstreamComponent>(boss), Is.False);
             Assert.That(entMan.HasComponent<Content.Shared.Damage.Components.SlowOnDamageComponent>(boss), Is.False);
+            Assert.That(entMan.GetComponent<Content.Shared.Weapons.Melee.MeleeWeaponComponent>(boss).Animation.Id, Is.EqualTo("BossWeaponArcNone"));
             var damage = new DamageSpecifier();
             damage.DamageDict["Blunt"] = FixedPoint2.New(800f);
             damageable.TryChangeDamage(boss, damage, ignoreResistances: true);
@@ -137,12 +138,37 @@ public sealed class BossTest : GameTest
             Assert.That(total, Is.GreaterThan(FixedPoint2.Zero));
         });
     }
+
+    [Test]
+    public async Task BossTwilightDoAfterTest()
+    {
+        var pair = Pair;
+        var server = pair.Server;
+        var entMan = server.EntMan;
+        var testMap = await pair.CreateTestMap();
+        EntityUid boss = default;
+        EntityUid mob = default;
+        await server.WaitPost(() =>
+        {
+            boss = entMan.SpawnEntity("MobTenHourBurstMan", testMap.GridCoords);
+            mob = entMan.SpawnEntity("MobHuman", testMap.GridCoords.Offset(new System.Numerics.Vector2(0.5f, 0f)));
+        });
+        await server.WaitRunTicks(3);
+        await server.WaitPost(() =>
+        {
+            var comp = entMan.GetComponent<TenHourBurstManComponent>(boss);
+            comp.Ability = HbmAbility.Twilight;
+            entMan.EventBus.RaiseLocalEvent(boss, new TwilightDoAfterEvent());
+        });
+        await server.WaitRunTicks(3);
+        await server.WaitAssertion(() =>
+        {
+            var comp = entMan.GetComponent<TenHourBurstManComponent>(boss);
+            Assert.That(comp.Ability, Is.EqualTo(HbmAbility.None));
+            var damageable = entMan.GetComponent<Content.Shared.Damage.Components.DamageableComponent>(mob);
+            var total = entMan.System<DamageableSystem>().GetTotalDamage((mob, damageable));
+            Assert.That(total, Is.GreaterThan(FixedPoint2.Zero));
+        });
+    }
 }
-
-
-
-
-
-
-
 

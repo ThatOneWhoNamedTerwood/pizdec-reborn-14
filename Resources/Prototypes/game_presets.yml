@@ -169,6 +169,19 @@
     - PizRebDeathmatchTimer
 
 - type: gamePreset
+  id: PizReb
+  alias:
+    - pizreb
+  name: pizreb-title
+  description: pizreb-description
+  maxPlayers: 30
+  showInVote: true
+  supportedMaps: PizRebSectorPool
+  rules:
+    - PizRebSector
+    - PizRebSectorTimer
+
+- type: gamePreset
   id: Nukeops
   alias:
     - nukeops

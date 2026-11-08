@@ -1,0 +1,387 @@
+﻿- type: entity
+  parent: BaseItem
+  id: CyberImplantGorillaArms
+  name: gorilla arms
+  description: A pair of reinforced cybernetic arms. Hits hard and pushes the target away.
+  components:
+  - type: Sprite
+    sprite: PizReb/Cyberware/implants.rsi
+    layers:
+    - state: gorilla
+  - type: Item
+    size: Normal
+  - type: CyberImplant
+    slot: ArmLeft
+    brainLoad: 8
+    installTime: 40
+    replacesLimb: true
+    layerColor: "#454545"
+    meleeDamageBonus: 20
+    pushOnHit: true
+    pushStrength: 4
+    staminaDamage: 10
+    tier: 2
+
+- type: entity
+  parent: BaseItem
+  id: CyberImplantLeroisTendons
+  name: Leroi's tendons
+  description: Reinforced leg tendons that make you noticeably faster.
+  components:
+  - type: Sprite
+    sprite: PizReb/Cyberware/implants.rsi
+    layers:
+    - state: tendons
+  - type: Item
+    size: Normal
+  - type: CyberImplant
+    slot: Legs
+    brainLoad: 4
+    installTime: 30
+    speedMultiplier: 1.2
+    tier: 1
+- type: entity
+  parent: BaseItem
+  id: CyberImplantGorillaArmsMk3
+  name: gorilla arms mk3
+  description: Reinforced cybernetic arms. Hits harder and pushes the target away.
+  components:
+  - type: Sprite
+    sprite: PizReb/Cyberware/implants.rsi
+    layers:
+    - state: gorilla
+  - type: Item
+    size: Normal
+  - type: CyberImplant
+    slot: ArmLeft
+    brainLoad: 10
+    installTime: 45
+    replacesLimb: true
+    layerColor: "#454545"
+    meleeDamageBonus: 32
+    pushOnHit: true
+    pushStrength: 6
+    staminaDamage: 20
+    tier: 3
+
+- type: entity
+  parent: BaseItem
+  id: CyberImplantGorillaArmsMk4
+  name: gorilla arms mk4
+  description: Top-tier cybernetic arms. Devastating punches.
+  components:
+  - type: Sprite
+    sprite: PizReb/Cyberware/implants.rsi
+    layers:
+    - state: gorilla
+  - type: Item
+    size: Normal
+  - type: CyberImplant
+    slot: ArmLeft
+    brainLoad: 12
+    installTime: 50
+    replacesLimb: true
+    layerColor: "#454545"
+    meleeDamageBonus: 45
+    pushOnHit: true
+    pushStrength: 9
+    staminaDamage: 30
+    tier: 4
+
+- type: entity
+  parent: BaseItem
+  id: CyberImplantSubdermalArmor
+  name: subdermal armor
+  description: A web of reinforced plates under the skin. Reduces mechanical damage by 15%.
+  components:
+  - type: Sprite
+    sprite: PizReb/Cyberware/implants.rsi
+    layers:
+    - state: armor
+  - type: Item
+    size: Small
+  - type: CyberImplant
+    slot: Skin
+    brainLoad: 4
+    installTime: 30
+    armorPercent: 0.15
+    tier: 2
+
+- type: entity
+  parent: BaseItem
+  id: CyberImplantStability
+  name: stability guarantee
+  description: Stabilizers in the palms. Reduces weapon spread by 30%.
+  components:
+  - type: Sprite
+    sprite: PizReb/Cyberware/implants.rsi
+    layers:
+    - state: stability
+  - type: Item
+    size: Small
+  - type: CyberImplant
+    slot: HandLeft
+    brainLoad: 2
+    installTime: 25
+    spreadMultiplier: 0.7
+    tier: 2
+
+- type: entity
+  parent: BaseItem
+  id: CyberImplantAnkles
+  name: reinforced ankles
+  description: Reinforced ankles allow a long knock-down dash.
+  components:
+  - type: Sprite
+    sprite: PizReb/Cyberware/implants.rsi
+    layers:
+    - state: ankles
+  - type: Item
+    size: Normal
+  - type: CyberImplant
+    slot: Legs
+    brainLoad: 3
+    installTime: 30
+    tier: 2
+  - type: CyberActionGrant
+    actions:
+    - ActionCyberDashLong
+
+- type: entity
+  parent: BaseItem
+  id: CyberImplantTendons
+  name: reinforced tendons
+  description: Reinforced leg tendons allow a safe forward dash.
+  components:
+  - type: Sprite
+    sprite: PizReb/Cyberware/implants.rsi
+    layers:
+    - state: tendons
+  - type: Item
+    size: Normal
+  - type: CyberImplant
+    slot: Legs
+    brainLoad: 3
+    installTime: 30
+    tier: 2
+  - type: CyberActionGrant
+    actions:
+    - ActionCyberDashShort
+
+- type: entity
+  parent: BaseItem
+  id: CyberImplantMantisBlades
+  name: mantis blades
+  description: Folding blade implants. Toggle them out to fight.
+  components:
+  - type: Sprite
+    sprite: PizReb/Cyberware/implants.rsi
+    layers:
+    - state: mantis
+  - type: Item
+    size: Normal
+  - type: CyberImplant
+    slot: ArmLeft
+    brainLoad: 6
+    installTime: 45
+    tier: 2
+  - type: CyberActionGrant
+    actions:
+    - ActionCyberMantis
+
+- type: entity
+  parent: BaseItem
+  id: CyberImplantProjectileSystem
+  name: projectile launch system
+  description: A forearm launcher for explosive projectiles.
+  components:
+  - type: Sprite
+    sprite: PizReb/Cyberware/implants.rsi
+    layers:
+    - state: projectile
+  - type: Item
+    size: Normal
+  - type: CyberImplant
+    slot: ArmRight
+    brainLoad: 6
+    installTime: 45
+    tier: 2
+  - type: CyberActionGrant
+    actions:
+    - ActionCyberExplosiveShot
+
+
+- type: entity
+  id: ActionCyberDashLong
+  name: Reinforced ankles
+  description: Dash forward, knocking down everyone in your path.
+  components:
+  - type: Action
+    useDelay: 8
+    itemIconStyle: BigAction
+    icon:
+      sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+      state: blastwave
+  - type: InstantAction
+    event: !type:CyberDashLongEvent
+  - type: AutoRecharge
+    rechargeDuration: 8
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    layers:
+    - state: blastwave
+
+- type: entity
+  id: ActionCyberDashShort
+  name: Reinforced tendons
+  description: Safe forward dash.
+  components:
+  - type: Action
+    useDelay: 4
+    itemIconStyle: BigAction
+    icon:
+      sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+      state: blastwave
+  - type: InstantAction
+    event: !type:CyberDashShortEvent
+  - type: LimitedCharges
+    maxCharges: 2
+  - type: AutoRecharge
+    rechargeDuration: 4
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    layers:
+    - state: blastwave
+
+- type: entity
+  id: ActionCyberMantis
+  name: Mantis blades
+  description: Extend or retract the mantis blades.
+  components:
+  - type: Action
+    useDelay: 1
+    itemIconStyle: BigAction
+    icon:
+      sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+      state: blastwave
+  - type: InstantAction
+    event: !type:CyberMantisToggleEvent
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    layers:
+    - state: blastwave
+
+- type: entity
+  id: ActionCyberExplosiveShot
+  name: Projectile launch system
+  description: Fire an explosive projectile.
+  components:
+  - type: Action
+    useDelay: 15
+    itemIconStyle: BigAction
+    icon:
+      sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+      state: blastwave
+  - type: TargetAction
+    checkCanAccess: false
+    range: 0
+  - type: WorldTargetAction
+    event: !type:CyberExplosiveShotEvent
+  - type: LimitedCharges
+    maxCharges: 1
+  - type: AutoRecharge
+    rechargeDuration: 15
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    layers:
+    - state: blastwave
+
+- type: entity
+  parent: BaseItem
+  id: CyberMantisBlade
+  name: mantis blades
+  description: A pair of folding blades.
+  components:
+  - type: Sprite
+    sprite: PizReb/Cyberware/implants.rsi
+    layers:
+    - state: blade
+  - type: Item
+    size: Normal
+  - type: Unremoveable
+  - type: MultiHandedItem
+  - type: MeleeWeapon
+    attackRate: 1.176
+    damage:
+      types:
+        Slash: 15
+
+
+
+
+- type: entity
+  parent: BaseBullet
+  id: CyberExplosiveProjectile
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    layers:
+    - state: fireball
+      shader: unshaded
+  - type: Explosive
+    explosionType: CyberwareImpact
+    totalIntensity: 6
+    intensitySlope: 2
+    maxIntensity: 2
+  - type: TriggerOnCollide
+    fixtureID: projectile
+  - type: ExplodeOnTrigger
+  - type: DeleteOnTrigger
+
+
+
+
+- type: entity
+  id: ActionCyberAnklesJump
+  name: Reinforced ankles
+  description: Leap forward, knocking down everyone nearby.
+  components:
+  - type: Action
+    useDelay: 0.5
+    itemIconStyle: BigAction
+    icon:
+      sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+      state: blastwave
+  - type: InstantAction
+    event: !type:GravityJumpEvent
+  - type: AutoRecharge
+    rechargeDuration: 8
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    layers:
+    - state: blastwave
+
+- type: entity
+  id: ActionCyberTendonsJump
+  name: Reinforced tendons
+  description: Safe forward leap.
+  components:
+  - type: Action
+    useDelay: 0.5
+    itemIconStyle: BigAction
+    icon:
+      sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+      state: blastwave
+  - type: InstantAction
+    event: !type:GravityJumpEvent
+  - type: LimitedCharges
+    maxCharges: 2
+  - type: AutoRecharge
+    rechargeDuration: 4
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    layers:
+    - state: blastwave
+
+

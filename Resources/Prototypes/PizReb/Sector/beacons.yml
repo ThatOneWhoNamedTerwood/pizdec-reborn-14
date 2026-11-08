@@ -1,0 +1,79 @@
+- type: entity
+  id: PizRebBeaconNanotrasen
+  name: pizreb-beacon-nanotrasen
+  description: pizreb-beacon-desc
+  components:
+  - type: Sprite
+    sprite: PizReb/Storm/mote.rsi
+    layers:
+    - state: mote
+      color: "#3B7DD8"
+      shader: unshaded
+  - type: PointLight
+    color: "#3B7DD8"
+    radius: 6
+    energy: 3
+
+- type: entity
+  id: PizRebBeaconSyndicate
+  name: pizreb-beacon-syndicate
+  description: pizreb-beacon-desc
+  components:
+  - type: Sprite
+    sprite: PizReb/Storm/mote.rsi
+    layers:
+    - state: mote
+      color: "#C41E1E"
+      shader: unshaded
+  - type: PointLight
+    color: "#C41E1E"
+    radius: 6
+    energy: 3
+
+- type: entity
+  id: PizRebBeaconGorlex
+  name: pizreb-beacon-gorlex
+  description: pizreb-beacon-desc
+  components:
+  - type: Sprite
+    sprite: PizReb/Storm/mote.rsi
+    layers:
+    - state: mote
+      color: "#D9822B"
+      shader: unshaded
+  - type: PointLight
+    color: "#D9822B"
+    radius: 6
+    energy: 3
+
+- type: entity
+  id: PizRebBeaconPirate
+  name: pizreb-beacon-pirate
+  description: pizreb-beacon-desc
+  components:
+  - type: Sprite
+    sprite: PizReb/Storm/mote.rsi
+    layers:
+    - state: mote
+      color: "#2BB673"
+      shader: unshaded
+  - type: PointLight
+    color: "#2BB673"
+    radius: 6
+    energy: 3
+
+- type: entity
+  id: PizRebBeaconIndependent
+  name: pizreb-beacon-independent
+  description: pizreb-beacon-desc
+  components:
+  - type: Sprite
+    sprite: PizReb/Storm/mote.rsi
+    layers:
+    - state: mote
+      color: "#B0B0B0"
+      shader: unshaded
+  - type: PointLight
+    color: "#B0B0B0"
+    radius: 6
+    energy: 3

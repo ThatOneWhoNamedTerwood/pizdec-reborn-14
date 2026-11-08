@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   abstract: true
   parent: BaseSpeciesMobNoCrawl
   id: BaseSpeciesMob
@@ -242,3 +242,5 @@
   save: false
   components:
   - type: Crawler
+  - type: Cyberware
+

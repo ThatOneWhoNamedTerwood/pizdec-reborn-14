@@ -1,0 +1,334 @@
+- type: department
+  id: PizRebNanotrasen
+  name: department-PizRebNanotrasen
+  description: department-PizRebNanotrasen-description
+  color: "#3B7DD8"
+  weight: 120
+  roles:
+  - PizRebFactionNanotrasen
+  - PizRebLeaderNanotrasen
+
+- type: department
+  id: PizRebSyndicate
+  name: department-PizRebSyndicate
+  description: department-PizRebSyndicate-description
+  color: "#C41E1E"
+  weight: 119
+  roles:
+  - PizRebFactionSyndicate
+  - PizRebLeaderSyndicate
+
+- type: department
+  id: PizRebGorlex
+  name: department-PizRebGorlex
+  description: department-PizRebGorlex-description
+  color: "#D9822B"
+  weight: 118
+  roles:
+  - PizRebFactionGorlex
+  - PizRebLeaderGorlex
+
+- type: department
+  id: PizRebPirates
+  name: department-PizRebPirates
+  description: department-PizRebPirates-description
+  color: "#2BB673"
+  weight: 117
+  roles:
+  - PizRebFactionPirates
+  - PizRebLeaderPirates
+
+- type: department
+  id: PizRebIndependent
+  name: department-PizRebIndependent
+  description: department-PizRebIndependent-description
+  color: "#B0B0B0"
+  weight: 116
+  roles:
+  - PizRebFactionIndependent
+
+- type: playTimeTracker
+  id: JobPizRebFactionNanotrasen
+
+- type: playTimeTracker
+  id: JobPizRebFactionSyndicate
+
+- type: playTimeTracker
+  id: JobPizRebFactionGorlex
+
+- type: playTimeTracker
+  id: JobPizRebFactionPirates
+
+- type: playTimeTracker
+  id: JobPizRebFactionIndependent
+
+- type: playTimeTracker
+  id: JobPizRebLeaderNanotrasen
+
+- type: playTimeTracker
+  id: JobPizRebLeaderSyndicate
+
+- type: playTimeTracker
+  id: JobPizRebLeaderGorlex
+
+- type: playTimeTracker
+  id: JobPizRebLeaderPirates
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconPizRebFactionNanotrasen
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: Passenger
+  jobName: job-name-pizreb-faction-nanotrasen
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconPizRebFactionSyndicate
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: Passenger
+  jobName: job-name-pizreb-faction-syndicate
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconPizRebFactionGorlex
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: Passenger
+  jobName: job-name-pizreb-faction-gorlex
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconPizRebFactionPirates
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: Passenger
+  jobName: job-name-pizreb-faction-pirates
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconPizRebFactionIndependent
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: Passenger
+  jobName: job-name-pizreb-faction-independent
+
+- type: startingGear
+  id: PizRebGearNanotrasen
+  equipment:
+    id: PassengerPDA
+    ears: ClothingHeadsetGrey
+
+- type: startingGear
+  id: PizRebGearSyndicate
+  equipment:
+    id: PassengerPDA
+    ears: ClothingHeadsetGrey
+
+- type: startingGear
+  id: PizRebGearGorlex
+  equipment:
+    id: PassengerPDA
+    ears: ClothingHeadsetGrey
+
+- type: startingGear
+  id: PizRebGearPirates
+  equipment:
+    id: PassengerPDA
+    ears: ClothingHeadsetGrey
+
+- type: startingGear
+  id: PizRebGearIndependent
+  equipment:
+    id: PassengerPDA
+    ears: ClothingHeadsetGrey
+
+- type: job
+  id: PizRebFactionNanotrasen
+  name: job-name-pizreb-faction-nanotrasen
+  description: job-description-pizreb-faction-nanotrasen
+  playTimeTracker: JobPizRebFactionNanotrasen
+  startingGear: PizRebGearNanotrasen
+  icon: JobIconPizRebFactionNanotrasen
+  supervisors: job-supervisors-nobody
+  setPreference: true
+  access:
+  - Maintenance
+
+- type: job
+  id: PizRebFactionSyndicate
+  name: job-name-pizreb-faction-syndicate
+  description: job-description-pizreb-faction-syndicate
+  playTimeTracker: JobPizRebFactionSyndicate
+  startingGear: PizRebGearSyndicate
+  icon: JobIconPizRebFactionSyndicate
+  supervisors: job-supervisors-nobody
+  setPreference: true
+  access:
+  - Maintenance
+
+- type: job
+  id: PizRebFactionGorlex
+  name: job-name-pizreb-faction-gorlex
+  description: job-description-pizreb-faction-gorlex
+  playTimeTracker: JobPizRebFactionGorlex
+  startingGear: PizRebGearGorlex
+  icon: JobIconPizRebFactionGorlex
+  supervisors: job-supervisors-nobody
+  setPreference: true
+  access:
+  - Maintenance
+
+- type: job
+  id: PizRebFactionPirates
+  name: job-name-pizreb-faction-pirates
+  description: job-description-pizreb-faction-pirates
+  playTimeTracker: JobPizRebFactionPirates
+  startingGear: PizRebGearPirates
+  icon: JobIconPizRebFactionPirates
+  supervisors: job-supervisors-nobody
+  setPreference: true
+  access:
+  - Maintenance
+
+- type: job
+  id: PizRebFactionIndependent
+  name: job-name-pizreb-faction-independent
+  description: job-description-pizreb-faction-independent
+  playTimeTracker: JobPizRebFactionIndependent
+  startingGear: PizRebGearIndependent
+  icon: JobIconPizRebFactionIndependent
+  supervisors: job-supervisors-nobody
+  setPreference: true
+  access:
+  - Maintenance
+
+- type: job
+  id: PizRebLeaderNanotrasen
+  name: job-name-pizreb-leader-nanotrasen
+  description: job-description-pizreb-leader-nanotrasen
+  playTimeTracker: JobPizRebLeaderNanotrasen
+  startingGear: PizRebGearNanotrasen
+  icon: JobIconPizRebFactionNanotrasen
+  supervisors: job-supervisors-nobody
+  setPreference: true
+  access:
+  - Maintenance
+
+- type: job
+  id: PizRebLeaderSyndicate
+  name: job-name-pizreb-leader-syndicate
+  description: job-description-pizreb-leader-syndicate
+  playTimeTracker: JobPizRebLeaderSyndicate
+  startingGear: PizRebGearSyndicate
+  icon: JobIconPizRebFactionSyndicate
+  supervisors: job-supervisors-nobody
+  setPreference: true
+  access:
+  - Maintenance
+
+- type: job
+  id: PizRebLeaderGorlex
+  name: job-name-pizreb-leader-gorlex
+  description: job-description-pizreb-leader-gorlex
+  playTimeTracker: JobPizRebLeaderGorlex
+  startingGear: PizRebGearGorlex
+  icon: JobIconPizRebFactionGorlex
+  supervisors: job-supervisors-nobody
+  setPreference: true
+  access:
+  - Maintenance
+
+- type: job
+  id: PizRebLeaderPirates
+  name: job-name-pizreb-leader-pirates
+  description: job-description-pizreb-leader-pirates
+  playTimeTracker: JobPizRebLeaderPirates
+  startingGear: PizRebGearPirates
+  icon: JobIconPizRebFactionPirates
+  supervisors: job-supervisors-nobody
+  setPreference: true
+  access:
+  - Maintenance
+
+- type: roleLoadout
+  id: JobPizRebFactionNanotrasen
+  groups:
+  - PizRebFighterJumpsuit
+  - PizRebFighterShoes
+  - PizRebFighterBack
+  - PizRebFighterHead
+  - PizRebFighterGloves
+
+- type: roleLoadout
+  id: JobPizRebFactionSyndicate
+  groups:
+  - PizRebFighterJumpsuit
+  - PizRebFighterShoes
+  - PizRebFighterBack
+  - PizRebFighterHead
+  - PizRebFighterGloves
+
+- type: roleLoadout
+  id: JobPizRebFactionGorlex
+  groups:
+  - PizRebFighterJumpsuit
+  - PizRebFighterShoes
+  - PizRebFighterBack
+  - PizRebFighterHead
+  - PizRebFighterGloves
+
+- type: roleLoadout
+  id: JobPizRebFactionPirates
+  groups:
+  - PizRebFighterJumpsuit
+  - PizRebFighterShoes
+  - PizRebFighterBack
+  - PizRebFighterHead
+  - PizRebFighterGloves
+
+- type: roleLoadout
+  id: JobPizRebFactionIndependent
+  groups:
+  - PizRebFighterJumpsuit
+  - PizRebFighterShoes
+  - PizRebFighterBack
+  - PizRebFighterHead
+  - PizRebFighterGloves
+
+- type: roleLoadout
+  id: JobPizRebLeaderNanotrasen
+  groups:
+  - PizRebFighterJumpsuit
+  - PizRebFighterShoes
+  - PizRebFighterBack
+  - PizRebFighterHead
+  - PizRebFighterGloves
+
+- type: roleLoadout
+  id: JobPizRebLeaderSyndicate
+  groups:
+  - PizRebFighterJumpsuit
+  - PizRebFighterShoes
+  - PizRebFighterBack
+  - PizRebFighterHead
+  - PizRebFighterGloves
+
+- type: roleLoadout
+  id: JobPizRebLeaderGorlex
+  groups:
+  - PizRebFighterJumpsuit
+  - PizRebFighterShoes
+  - PizRebFighterBack
+  - PizRebFighterHead
+  - PizRebFighterGloves
+
+- type: roleLoadout
+  id: JobPizRebLeaderPirates
+  groups:
+  - PizRebFighterJumpsuit
+  - PizRebFighterShoes
+  - PizRebFighterBack
+  - PizRebFighterHead
+  - PizRebFighterGloves

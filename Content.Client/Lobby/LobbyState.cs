@@ -2,6 +2,7 @@ using System.Linq;
 using Content.Client.Audio;
 using Content.Client.GameTicking;
 using Content.Client.LateJoin;
+using Content.Client.PizReb.Party;
 using Content.Client.Lobby.UI;
 using Content.Client.Message;
 using Content.Client.Playtime;
@@ -122,11 +123,20 @@ namespace Content.Client.Lobby
                 return;
             }
 
+            if (PizRebPartyLobbyInfo.Active)
+                return;
+
             new LateJoinGui().OpenCentered();
         }
 
         private void OnReadyToggled(BaseButton.ButtonToggledEventArgs args)
         {
+            if (PizRebPartyLobbyInfo.Active)
+            {
+                PizRebPartyLobbyInfo.SetReady?.Invoke(args.Pressed);
+                return;
+            }
+
             SetReady(args.Pressed);
         }
 
@@ -185,6 +195,11 @@ namespace Content.Client.Lobby
             UpdateLobbyUi();
         }
 
+        public void RefreshLobbyUi()
+        {
+            UpdateLobbyUi();
+        }
+
         private void LobbyLateJoinStatusUpdated()
         {
             Lobby!.ReadyButton.Disabled = _gameTicker.DisallowedLateJoin;
@@ -194,9 +209,21 @@ namespace Content.Client.Lobby
         {
             if (_gameTicker.IsGameStarted)
             {
-                Lobby!.ReadyButton.Text = Loc.GetString("lobby-state-ready-button-join-state");
-                Lobby!.ReadyButton.ToggleMode = false;
-                Lobby!.ReadyButton.Pressed = false;
+                if (PizRebPartyLobbyInfo.Active)
+                {
+                    Lobby!.ReadyButton.Text = Loc.GetString(PizRebPartyLobbyInfo.SelfReady
+                        ? "lobby-state-player-status-ready"
+                        : "lobby-state-player-status-not-ready");
+                    Lobby!.ReadyButton.ToggleMode = true;
+                    Lobby!.ReadyButton.Pressed = PizRebPartyLobbyInfo.SelfReady;
+                }
+                else
+                {
+                    Lobby!.ReadyButton.Text = Loc.GetString("lobby-state-ready-button-join-state");
+                    Lobby!.ReadyButton.ToggleMode = false;
+                    Lobby!.ReadyButton.Pressed = false;
+                }
+
                 Lobby!.ObserveButton.Disabled = false;
             }
             else

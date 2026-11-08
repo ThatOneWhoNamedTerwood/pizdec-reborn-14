@@ -41,3 +41,4 @@ ent-GatewayMissionObjectiveSpawn = gateway mission objective spawn
 gateway-mission-burstman-name = 10 Hours Burst Man
 gateway-mission-burstman-desc = A dark arena. Something tall is already waiting for you, and it does not intend to let you leave.
 gateway-mission-burstman-goal = Kill the ten hours burst man and return through the gateway.
+gateway-mission-return-locked = The return gateway is sealed until the objective is complete.

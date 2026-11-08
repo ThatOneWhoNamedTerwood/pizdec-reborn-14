@@ -257,8 +257,15 @@ public sealed class GatewayTest : GameTest
             Assert.That(markerCoords, Is.Not.Null);
             var objectiveXform = entMan.GetComponent<TransformComponent>(mission.Objective.Value);
             Assert.That(objectiveXform.Coordinates, Is.EqualTo(markerCoords!.Value));
+            var gatewaySystem = entMan.System<ExpeditionGatewaySystem>();
+            var mob = entMan.SpawnEntity("MobHuman", testMap.GridCoords);
+            Assert.That(gatewaySystem.TrySendToMission(gate, mob), Is.True);
+            Assert.That(entMan.GetComponent<TransformComponent>(mob).MapID, Is.EqualTo(missionMapId));
+            Assert.That(gatewaySystem.ReturnFromMission(mob), Is.False);
+            Assert.That(entMan.GetComponent<TransformComponent>(mob).MapID, Is.EqualTo(missionMapId));
         });
     }
 }
+
 
 

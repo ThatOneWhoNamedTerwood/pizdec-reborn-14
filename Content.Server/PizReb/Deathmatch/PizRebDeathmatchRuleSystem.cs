@@ -349,14 +349,14 @@ public sealed partial class PizRebDeathmatchRuleSystem : GameRuleSystem<PizRebDe
             station = fallback;
         }
 
-        if (_bodies.TryGetValue(user, out var body) && EntityManager.EntityExists(body))
+        if (_bodies.TryGetValue(user, out var body) && Exists(body))
             QueueDel(body);
 
         _bodies.Remove(user);
 
         var hasMind = _mind.TryGetMind(session, out var mindId, out var mind);
 
-        if (hasMind && mind?.OwnedEntity is { } owned && EntityManager.EntityExists(owned))
+        if (hasMind && mind?.OwnedEntity is { } owned && Exists(owned))
             QueueDel(owned);
 
         var query = EntityQueryEnumerator<PizRebDeathmatchRuleComponent, PointManagerComponent, GameRuleComponent>();
@@ -482,7 +482,7 @@ public sealed partial class PizRebDeathmatchRuleSystem : GameRuleSystem<PizRebDe
                     return MetaData(attached).EntityName;
                 break;
             case KillNpcSource npc:
-                if (EntityManager.EntityExists(npc.NpcEnt))
+                if (Exists(npc.NpcEnt))
                     return MetaData(npc.NpcEnt).EntityName;
                 break;
         }
@@ -492,7 +492,7 @@ public sealed partial class PizRebDeathmatchRuleSystem : GameRuleSystem<PizRebDe
 
     private string GetName(EntityUid uid)
     {
-        return EntityManager.EntityExists(uid) ? MetaData(uid).EntityName : string.Empty;
+        return Exists(uid) ? MetaData(uid).EntityName : string.Empty;
     }
 
     private void AnnounceKillStreak(PizRebDeathmatchRuleComponent component, EntityUid ruleUid, NetUserId player, int streak)

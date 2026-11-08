@@ -20,6 +20,15 @@ public sealed partial class BossPrototype : IPrototype
     public float DisplayRange = 35f;
 
     [DataField]
+    public Color HealthBarColor = new(0.62f, 0.09f, 0.09f, 0.90f);
+
+    [DataField]
+    public Color HealthBarBackgroundColor = new(0.07f, 0.07f, 0.08f, 0.72f);
+
+    [DataField]
+    public Color HealthBarBorderColor = new(0.75f, 0.75f, 0.75f, 0.55f);
+
+    [DataField]
     public List<BossPhaseDefinition> Phases = new();
 }
 

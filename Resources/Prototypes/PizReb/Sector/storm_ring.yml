@@ -1,0 +1,132 @@
+- type: entity
+  id: PizRebStormRingBase
+  abstract: true
+  name: pizreb-storm-ring-name
+  description: pizreb-storm-ring-desc
+  components:
+  - type: Sprite
+    sprite: PizReb/Storm/storm.rsi
+    drawdepth: BelowFloor
+    layers:
+    - state: fill
+      color: "#7B2FBF0D"
+      shader: unshaded
+    - state: ring1
+      color: "#7B2FBF22"
+      shader: PizRebStormNoise
+    - state: edge
+      color: "#B15CFF22"
+      shader: unshaded
+  - type: PizRebStormRing
+
+- type: entity
+  id: PizRebStormRing1
+  parent: PizRebStormRingBase
+  components:
+  - type: Sprite
+    sprite: PizReb/Storm/storm.rsi
+    drawdepth: BelowFloor
+    layers:
+    - state: fill
+      color: "#7B2FBF0D"
+      shader: unshaded
+    - state: ring1
+      color: "#7B2FBF22"
+      shader: PizRebStormNoise
+    - state: edge
+      color: "#B15CFF22"
+      shader: unshaded
+
+- type: entity
+  id: PizRebStormRing2
+  parent: PizRebStormRingBase
+  components:
+  - type: Sprite
+    sprite: PizReb/Storm/storm.rsi
+    drawdepth: BelowFloor
+    layers:
+    - state: fill
+      color: "#8A2BE212"
+      shader: unshaded
+    - state: ring2
+      color: "#8A2BE226"
+      shader: PizRebStormNoise
+    - state: edge
+      color: "#B15CFF2A"
+      shader: unshaded
+
+- type: entity
+  id: PizRebStormRing3
+  parent: PizRebStormRingBase
+  components:
+  - type: Sprite
+    sprite: PizReb/Storm/storm.rsi
+    drawdepth: BelowFloor
+    layers:
+    - state: fill
+      color: "#9B30FF17"
+      shader: unshaded
+    - state: ring3
+      color: "#9B30FF2E"
+      shader: PizRebStormNoise
+    - state: edge
+      color: "#C77DFF30"
+      shader: unshaded
+
+- type: entity
+  id: PizRebStormRing4
+  parent: PizRebStormRingBase
+  components:
+  - type: Sprite
+    sprite: PizReb/Storm/storm.rsi
+    drawdepth: BelowFloor
+    layers:
+    - state: fill
+      color: "#B15CFF1F"
+      shader: unshaded
+    - state: ring4
+      color: "#B15CFF38"
+      shader: PizRebStormNoise
+    - state: edge
+      color: "#D9B3FF38"
+      shader: unshaded
+
+- type: entity
+  id: PizRebStormRing5
+  parent: PizRebStormRingBase
+  components:
+  - type: Sprite
+    sprite: PizReb/Storm/storm.rsi
+    drawdepth: BelowFloor
+    layers:
+    - state: fill
+      color: "#FFFFFF7A"
+      shader: unshaded
+    - state: ring5
+      color: "#FFFFFF44"
+      shader: PizRebStormNoise
+    - state: edge
+      color: "#FFFFFF55"
+      shader: unshaded
+
+- type: entity
+  id: PizRebStormMote
+  name: pizreb-storm-mote-name
+  description: pizreb-storm-mote-desc
+  components:
+  - type: Sprite
+    sprite: PizReb/Storm/mote.rsi
+    layers:
+    - state: mote
+      color: "#C89BFF"
+      shader: unshaded
+  - type: TimedDespawn
+    lifetime: 3
+
+- type: entity
+  id: PizRebStormStrike
+  name: pizreb-storm-strike-name
+  description: pizreb-storm-strike-desc
+  components:
+  - type: TimedDespawn
+    lifetime: 0.2

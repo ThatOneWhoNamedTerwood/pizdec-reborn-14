@@ -1,0 +1,7 @@
+- type: shader
+  id: PizRebStormNoise
+  kind: source
+  path: "/Textures/Shaders/storm_noise.swsl"
+  params:
+    ScrollSpeed: 0.06
+    Strength: 0.9

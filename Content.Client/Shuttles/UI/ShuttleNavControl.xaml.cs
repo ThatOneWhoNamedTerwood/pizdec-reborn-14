@@ -36,6 +36,19 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
 
     private Dictionary<NetEntity, List<DockingPortState>> _docks = new();
 
+    private bool _stormActive;
+    private Vector2 _stormPosition;
+    private List<float> _stormRadii = new();
+
+    private static readonly Color[] StormColors =
+    {
+        Color.FromHex("#6A1FB0").WithAlpha(0.55f),
+        Color.FromHex("#7C2BD0").WithAlpha(0.6f),
+        Color.FromHex("#8A2BE2").WithAlpha(0.65f),
+        Color.FromHex("#A64BFF").WithAlpha(0.75f),
+        Color.FromHex("#E6CCFF").WithAlpha(0.9f),
+    };
+
     public bool ShowIFF { get; set; } = true;
     public bool ShowDocks { get; set; } = true;
     public bool ShowCargoDocks { get; set; } = true;
@@ -124,6 +137,9 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
         RotateWithEntity = state.RotateWithEntity;
 
         _docks = state.Docks;
+        _stormActive = state.StormActive;
+        _stormPosition = state.StormPosition;
+        _stormRadii = state.StormRadii;
     }
 
     protected override void Draw(DrawingHandleScreen handle)
@@ -156,6 +172,19 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
         var shuttleToWorld = Matrix3x2.Multiply(posMatrix, ourEntMatrix);
         Matrix3x2.Invert(shuttleToWorld, out var worldToShuttle);
         var shuttleToView = Matrix3x2.CreateScale(new Vector2(MinimapScale, -MinimapScale)) * Matrix3x2.CreateTranslation(MidPointVector);
+
+        if (_stormActive && _stormRadii.Count > 0)
+        {
+            var stormCenter = Vector2.Transform(_stormPosition, worldToShuttle * shuttleToView);
+
+            for (var i = 0; i < _stormRadii.Count; i++)
+            {
+                var color = StormColors[Math.Min(i, StormColors.Length - 1)];
+                handle.DrawCircle(stormCenter, _stormRadii[i] * MinimapScale, color, false);
+            }
+
+            handle.DrawCircle(stormCenter, 2f * MinimapScale, Color.White, true);
+        }
 
         // Draw our grid in detail
         var ourGridId = xform.GridUid;

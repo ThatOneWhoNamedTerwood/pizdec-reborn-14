@@ -1,0 +1,13 @@
+- type: entity
+  id: PizRebSector
+  parent: BaseGameRule
+  components:
+  - type: PizRebSectorRule
+
+- type: entity
+  id: PizRebSectorTimer
+  parent: BaseGameRule
+  components:
+  - type: MaxTimeRestartRule
+    roundMaxTime: 7200
+    roundEndDelay: 10

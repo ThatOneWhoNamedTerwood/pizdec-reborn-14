@@ -1,0 +1,30 @@
+department-PizRebNanotrasen = Nanotrasen
+department-PizRebNanotrasen-description = Science faction. Studies artifacts and anomalies.
+department-PizRebSyndicate = Syndicate
+department-PizRebSyndicate-description = Sabotages Nanotrasen and steals technology.
+department-PizRebGorlex = Gorlex Marauders
+department-PizRebGorlex-description = The most violent and unhinged. Loot and blow things up.
+department-PizRebPirates = Pirates
+department-PizRebPirates-description = Steal valuable junk and make money.
+department-PizRebIndependent = Independent
+department-PizRebIndependent-description = Do anything, but worse than specialized factions.
+
+job-name-pizreb-faction-nanotrasen = NT Expeditor
+job-description-pizreb-faction-nanotrasen = A rank-and-file member of the science expedition.
+job-name-pizreb-faction-syndicate = Agent
+job-description-pizreb-faction-syndicate = A rank-and-file member of a sabotage cell.
+job-name-pizreb-faction-gorlex = Operative
+job-description-pizreb-faction-gorlex = A rank-and-file marauder.
+job-name-pizreb-faction-pirates = Freebooter
+job-description-pizreb-faction-pirates = A rank-and-file member of a pirate crew.
+job-name-pizreb-faction-independent = Adventurer
+job-description-pizreb-faction-independent = A lone drifter with no faction.
+
+job-name-pizreb-leader-nanotrasen = NT Director
+job-description-pizreb-leader-nanotrasen = Head of the Nanotrasen expedition.
+job-name-pizreb-leader-syndicate = Coordinator
+job-description-pizreb-leader-syndicate = Coordinator of Syndicate operations.
+job-name-pizreb-leader-gorlex = Syndicate Representative
+job-description-pizreb-leader-gorlex = Representative of the Gorlex Marauders.
+job-name-pizreb-leader-pirates = Fleet Admiral
+job-description-pizreb-leader-pirates = Commander of the pirate fleet.

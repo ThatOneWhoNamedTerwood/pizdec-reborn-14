@@ -1,0 +1,23 @@
+- type: gameMap
+  id: PizRebSector
+  mapName: pizreb-sector-map-name
+  mapPath: /Maps/PizReb/sector.yml
+  minPlayers: 0
+  stations:
+    PizRebSector:
+      stationProto: StandardStationArena
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: "PizReb Sector"
+        - type: StationJobs
+          availableJobs:
+            PizRebFactionNanotrasen: [ -1, -1 ]
+            PizRebFactionSyndicate: [ -1, -1 ]
+            PizRebFactionGorlex: [ -1, -1 ]
+            PizRebFactionPirates: [ -1, -1 ]
+            PizRebFactionIndependent: [ -1, -1 ]
+
+- type: gameMapPool
+  id: PizRebSectorPool
+  maps:
+  - PizRebSector

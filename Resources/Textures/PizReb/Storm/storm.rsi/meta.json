@@ -1,0 +1,67 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Placeholder generated for PizReb",
+  "size": {
+    "x": 512,
+    "y": 512
+  },
+  "states": [
+    {
+      "name": "fill",
+      "delays": [
+        [
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "ring1",
+      "delays": [
+        [
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "ring2",
+      "delays": [
+        [
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "ring3",
+      "delays": [
+        [
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "ring4",
+      "delays": [
+        [
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "ring5",
+      "delays": [
+        [
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "edge",
+      "delays": [
+        [
+          1.0
+        ]
+      ]
+    }
+  ]
+}

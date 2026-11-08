@@ -109,10 +109,22 @@
     noRot: true
     layers:
     - state: frame
-    - state: on
+    - map: ["light"]
+      state: on
       shader: unshaded
-    - state: portal
+    - map: ["portal"]
+      state: portal
       shader: unshaded
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.GatewayReturnPortalVisuals.Active:
+        light:
+          True: { visible: true }
+          False: { visible: false }
+        portal:
+          True: { visible: true }
+          False: { visible: false }
   - type: InteractionOutline
   - type: Physics
     bodyType: Static

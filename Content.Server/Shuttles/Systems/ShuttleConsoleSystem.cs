@@ -1,4 +1,5 @@
 using Content.Server.Power.EntitySystems;
+using Content.Server.PizReb.Sector;
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Events;
 using Content.Server.Station.Systems;
@@ -376,14 +377,25 @@ public sealed partial class ShuttleConsoleSystem : SharedShuttleConsoleSystem
     /// </summary>
     public NavInterfaceState GetNavState(Entity<RadarConsoleComponent?, TransformComponent?> entity, Dictionary<NetEntity, List<DockingPortState>> docks)
     {
-        if (!Resolve(entity, ref entity.Comp1, ref entity.Comp2))
-            return new NavInterfaceState(SharedRadarConsoleSystem.DefaultMaxRange, null, null, docks);
+        NavInterfaceState state;
 
-        return GetNavState(
-            entity,
-            docks,
-            entity.Comp2.Coordinates,
-            entity.Comp2.LocalRotation);
+        if (!Resolve(entity, ref entity.Comp1, ref entity.Comp2))
+            state = new NavInterfaceState(SharedRadarConsoleSystem.DefaultMaxRange, null, null, docks);
+        else
+            state = GetNavState(entity, docks, entity.Comp2.Coordinates, entity.Comp2.LocalRotation);
+
+        ApplyStorm(state);
+        return state;
+    }
+
+    private void ApplyStorm(NavInterfaceState state)
+    {
+        if (!EntityManager.System<PizRebSectorRuleSystem>().TryGetStorm(out var position, out var radii))
+            return;
+
+        state.StormActive = true;
+        state.StormPosition = position;
+        state.StormRadii = radii;
     }
 
     public NavInterfaceState GetNavState(
@@ -392,14 +404,15 @@ public sealed partial class ShuttleConsoleSystem : SharedShuttleConsoleSystem
         EntityCoordinates coordinates,
         Angle angle)
     {
-        if (!Resolve(entity, ref entity.Comp1, ref entity.Comp2))
-            return new NavInterfaceState(SharedRadarConsoleSystem.DefaultMaxRange, GetNetCoordinates(coordinates), angle, docks);
+        NavInterfaceState state;
 
-        return new NavInterfaceState(
-            entity.Comp1.MaxRange,
-            GetNetCoordinates(coordinates),
-            angle,
-            docks);
+        if (!Resolve(entity, ref entity.Comp1, ref entity.Comp2))
+            state = new NavInterfaceState(SharedRadarConsoleSystem.DefaultMaxRange, GetNetCoordinates(coordinates), angle, docks);
+        else
+            state = new NavInterfaceState(entity.Comp1.MaxRange, GetNetCoordinates(coordinates), angle, docks);
+
+        ApplyStorm(state);
+        return state;
     }
 
     /// <summary>

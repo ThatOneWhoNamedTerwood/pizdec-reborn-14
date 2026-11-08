@@ -1,0 +1,10 @@
+uniform highp float ScrollSpeed;
+uniform highp float Strength;
+
+void fragment() {
+    highp vec2 p = UV * 5.0 + vec2(TIME * ScrollSpeed, TIME * ScrollSpeed * 0.35);
+    highp float n = zFBM(p);
+    COLOR = zTexture(UV);
+    COLOR.rgb *= mix(1.0, 0.55 + n * 0.9, Strength);
+    COLOR.a *= mix(1.0, 0.35 + n * 0.9, Strength);
+}

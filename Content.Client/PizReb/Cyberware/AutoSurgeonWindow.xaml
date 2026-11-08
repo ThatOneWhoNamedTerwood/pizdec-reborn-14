@@ -1,0 +1,87 @@
+﻿<controls:FancyWindow xmlns="https://spacestation14.io"
+                     xmlns:controls="using:Content.Client.UserInterface.Controls"
+                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                     x:Class="Content.Client.PizReb.Cyberware.AutoSurgeonWindow"
+                     Title="{Loc 'cyberware-table-window-title'}"
+                     MinSize="820 560">
+    <PanelContainer Name="Root">
+        <BoxContainer Orientation="Vertical" SeparationOverride="8" Margin="10">
+            <Label Name="HeaderLabel" Text="{Loc 'cyberware-ui-header'}" Modulate="#00E5FF"/>
+            <BoxContainer Orientation="Horizontal" SeparationOverride="6">
+                <Label Text="{Loc 'cyberware-ui-integrity'}" Modulate="#FF2B4A" MinWidth="96"/>
+                <ProgressBar Name="DurabilityBar" MinValue="0" MaxValue="100" HorizontalExpand="True" MinHeight="16"/>
+                <Label Name="DurabilityValueLabel" MinWidth="48" HorizontalAlignment="Right"/>
+            </BoxContainer>
+            <BoxContainer Orientation="Horizontal" SeparationOverride="6">
+                <Label Text="{Loc 'cyberware-ui-capacity'}" Modulate="#00E5FF" MinWidth="96"/>
+                <ProgressBar Name="CapacityBar" MinValue="0" MaxValue="100" HorizontalExpand="True" MinHeight="16"/>
+                <Label Name="CapacityValueLabel" MinWidth="48" HorizontalAlignment="Right"/>
+            </BoxContainer>
+            <BoxContainer Orientation="Horizontal" SeparationOverride="6">
+                <Label Text="{Loc 'cyberware-ui-heat'}" Modulate="#FF7A00" MinWidth="96"/>
+                <ProgressBar Name="HeatBar" MinValue="0" MaxValue="100" HorizontalExpand="True" MinHeight="16"/>
+                <Label Name="HeatValueLabel" MinWidth="48" HorizontalAlignment="Right"/>
+            </BoxContainer>
+            <Label Name="WarningLabel" Modulate="#F0C040"/>
+            <BoxContainer Orientation="Horizontal" SeparationOverride="8" VerticalExpand="True">
+                <BoxContainer Orientation="Vertical" SeparationOverride="6" HorizontalExpand="True">
+                    <BoxContainer Orientation="Horizontal" SeparationOverride="4">
+                        <Button Name="StatusButton" Text="{Loc 'cyberware-tab-status'}"/>
+                        <Button Name="InstallTabButton" Text="{Loc 'cyberware-tab-install'}"/>
+                        <Button Name="ReplaceTabButton" Text="{Loc 'cyberware-tab-replace'}"/>
+                    </BoxContainer>
+                    <PanelContainer Name="ContentPanel" VerticalExpand="True">
+                        <BoxContainer Orientation="Vertical" SeparationOverride="6" Margin="8">
+                            <BoxContainer Orientation="Horizontal" SeparationOverride="10" VerticalExpand="True">
+                                <BoxContainer Orientation="Vertical" SeparationOverride="6" HorizontalExpand="True">
+                                    <BoxContainer Orientation="Vertical" Name="StatusPanel" VerticalExpand="True" SeparationOverride="4">
+                                        <Label Name="PatientLabel" Modulate="#00E5FF"/>
+                                        <Label Text="{Loc 'cyberware-table-installed'}" Modulate="#FF2B4A"/>
+                                        <Label Name="StatusEmptyLabel" Modulate="#8A8A96"/>
+                                        <ScrollContainer VerticalExpand="True">
+                                            <BoxContainer Orientation="Vertical" Name="InstalledList"/>
+                                        </ScrollContainer>
+                                    </BoxContainer>
+                                    <BoxContainer Orientation="Vertical" Name="InstallPanel" Visible="False" VerticalExpand="True" SeparationOverride="4">
+                                        <Label Text="{Loc 'cyberware-table-inserted'}" Modulate="#FF2B4A"/>
+                                        <Label Name="InstallEmptyLabel" Modulate="#8A8A96"/>
+                                        <ScrollContainer VerticalExpand="True">
+                                            <BoxContainer Orientation="Vertical" Name="InstallList"/>
+                                        </ScrollContainer>
+                                        <Button Name="InstallButton" Text="{Loc 'cyberware-table-start'}"/>
+                                    </BoxContainer>
+                                    <BoxContainer Orientation="Vertical" Name="ReplacePanel" Visible="False" VerticalExpand="True" SeparationOverride="4">
+                                        <Label Text="{Loc 'cyberware-table-installed'}" Modulate="#00E5FF"/>
+                                        <Label Name="ReplaceInstalledEmptyLabel" Modulate="#8A8A96"/>
+                                        <ScrollContainer VerticalExpand="True" MinHeight="80">
+                                            <BoxContainer Orientation="Vertical" Name="ReplaceInstalledList"/>
+                                        </ScrollContainer>
+                                        <Label Text="{Loc 'cyberware-table-inserted'}" Modulate="#FF2B4A"/>
+                                        <Label Name="ReplaceEmptyLabel" Modulate="#8A8A96"/>
+                                        <ScrollContainer VerticalExpand="True" MinHeight="80">
+                                            <BoxContainer Orientation="Vertical" Name="ReplaceList"/>
+                                        </ScrollContainer>
+                                        <Button Name="ReplaceButton" Text="{Loc 'cyberware-table-replace'}"/>
+                                    </BoxContainer>
+                                </BoxContainer>
+                                <PanelContainer Name="PortraitPanel" MinWidth="140" MinHeight="140">
+                                    <SpriteView Name="Portrait" MinSize="120 120" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Fill" Scale="2, 2"/>
+                                </PanelContainer>
+                            </BoxContainer>
+                        </BoxContainer>
+                    </PanelContainer>
+                </BoxContainer>
+                <PanelContainer Name="ServicePanel" MinWidth="190" HorizontalExpand="False">
+                    <BoxContainer Orientation="Vertical" SeparationOverride="6" Margin="10">
+                        <Label Text="{Loc 'cyberware-tab-service'}" Modulate="#00E5FF"/>
+                        <Label Name="ServiceDurabilityLabel"/>
+                        <Label Name="ServiceTankLabel"/>
+                        <Label Name="ServiceJugLabel"/>
+                        <Label Name="ServiceStageLabel"/>
+                    </BoxContainer>
+                </PanelContainer>
+            </BoxContainer>
+        </BoxContainer>
+    </PanelContainer>
+</controls:FancyWindow>
+

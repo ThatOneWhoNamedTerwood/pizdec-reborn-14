@@ -1,0 +1,6 @@
+- type: entity
+  id: PizRebEpicenter
+  name: pizreb-epicenter-name
+  description: pizreb-epicenter-desc
+  components:
+  - type: PizRebEpicenter

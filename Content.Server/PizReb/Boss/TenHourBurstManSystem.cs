@@ -1,7 +1,9 @@
 ﻿using System.Linq;
 using System.Numerics;
+using Content.Server.DoAfter;
 using Content.Server.NPC.Systems;
 using Content.Shared.Damage;
+using Content.Shared.DoAfter;
 using Content.Shared.Body.Components;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
@@ -29,6 +31,7 @@ namespace Content.Server.PizReb.Boss;
 public sealed partial class TenHourBurstManSystem : EntitySystem
 {
     [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private DoAfterSystem _doAfter = default!;
     [Dependency] private EntityLookupSystem _lookup = default!;
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private IRobustRandom _random = default!;
@@ -61,6 +64,7 @@ public sealed partial class TenHourBurstManSystem : EntitySystem
         SubscribeLocalEvent<TenHourBurstManComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<TenHourBurstManComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<TenHourBurstManComponent, MobStateChangedEvent>(OnMobStateChanged);
+        SubscribeLocalEvent<TenHourBurstManComponent, TwilightDoAfterEvent>(OnTwilightDoAfter);
         SubscribeLocalEvent<TenHourBurstManComponent, BossPhaseTransitionStartedEvent>(OnTransitionStarted);
         SubscribeLocalEvent<TenHourBurstManComponent, BossPhaseTransitionFinishedEvent>(OnTransitionFinished);
     }
@@ -77,6 +81,31 @@ public sealed partial class TenHourBurstManSystem : EntitySystem
         if (ent.Comp.Parasite != null && !Deleted(ent.Comp.Parasite.Value))
             Del(ent.Comp.Parasite.Value);
         ent.Comp.Parasite = null;
+    }
+
+    private void OnTwilightDoAfter(Entity<TenHourBurstManComponent> ent, ref TwilightDoAfterEvent args)
+    {
+        var comp = ent.Comp;
+        comp.TwilightDoAfter = null;
+        if ((args.DoAfter != null && args.Cancelled) || comp.Ability != HbmAbility.Twilight)
+            return;
+        var now = _timing.CurTime;
+        var coords = Transform(ent.Owner).Coordinates;
+        Spawn(comp.TwilightEffect, coords);
+        for (var i = 0; i < 3; i++)
+        {
+            var crack = Spawn("BossTwilightCracks", coords.Offset(_random.NextVector2(comp.TwilightRadius * 0.6f)));
+            _transform.SetWorldRotation(crack, _random.NextAngle());
+        }
+        PlayBossSound(ent.Owner, comp.TwilightSound);
+        foreach (var other in _lookup.GetEntitiesInRange(Transform(ent.Owner).Coordinates, comp.TwilightRadius, LookupFlags.Dynamic))
+        {
+            if (!IsPlayerAlive(other))
+                continue;
+            ApplyDamage(other, "Blunt", comp.TwilightDamage, ent.Owner);
+            _stun.TryKnockdown(other, comp.TwilightStun, true);
+        }
+        Finish(ent.Owner, comp, HbmAbility.Twilight, comp.TwilightCooldown, now);
     }
 
     private void OnMobStateChanged(Entity<TenHourBurstManComponent> ent, ref MobStateChangedEvent args)
@@ -224,7 +253,7 @@ public sealed partial class TenHourBurstManSystem : EntitySystem
         comp.ShotsLeft = 0;
         comp.DashHit = false;
         comp.AbilityHit = false;
-        if (ability != HbmAbility.StrongLeft)
+        if (ability is HbmAbility.Darkheart or HbmAbility.Twilight or HbmAbility.Vampirism)
             SleepNpc(uid);
         switch (ability)
         {
@@ -239,6 +268,13 @@ public sealed partial class TenHourBurstManSystem : EntitySystem
                 SetState(uid, TenHourBurstManVisualState.PeaceForAll);
                 ApplySpeed(uid, comp, comp.TwilightSlow, now);
                 comp.StepTime = now + comp.TwilightDelay;
+                if (_doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, uid, comp.TwilightDelay, new TwilightDoAfterEvent(), uid)
+                {
+                    BreakOnMove = false,
+                    BreakOnDamage = false,
+                    NeedHand = false,
+                }, out var twilightId))
+                    comp.TwilightDoAfter = twilightId;
                 break;
             case HbmAbility.Holoparasite:
                 SetState(uid, TenHourBurstManVisualState.Default);
@@ -260,12 +296,13 @@ public sealed partial class TenHourBurstManSystem : EntitySystem
                 ApplySpeed(uid, comp, comp.ShotgunSlow, now);
                 comp.ShotsLeft = comp.ShotgunShots;
                 comp.StepTime = now;
-                if (comp.ShotgunSound != null)
-                    PlayBossSound(uid, comp.ShotgunSound);
+                if (comp.ShotgunEquipSound != null)
+                    PlayBossSound(uid, comp.ShotgunEquipSound);
                 break;
             case HbmAbility.GrandValley:
-                SetState(uid, TenHourBurstManVisualState.Shotgun);
+                SetState(uid, TenHourBurstManVisualState.Default);
                 SetGlow(uid, Color.Red, 0.8f);
+                ApplySpeed(uid, comp, comp.GrandValleySlow, now);
                 comp.ShotsLeft = comp.GrandValleyShots;
                 comp.StepTime = now;
                 if (comp.GrandValleySound != null)
@@ -307,19 +344,6 @@ public sealed partial class TenHourBurstManSystem : EntitySystem
                 }
                 break;
             case HbmAbility.Twilight:
-                if (now < comp.StepTime)
-                    break;
-                Spawn(comp.TwilightEffect, Transform(uid).Coordinates);
-                if (comp.TwilightSound != null)
-                    PlayBossSound(uid, comp.TwilightSound);
-                foreach (var other in _lookup.GetEntitiesInRange(Transform(uid).Coordinates, comp.TwilightRadius, LookupFlags.Dynamic))
-                {
-                    if (!IsPlayerAlive(other))
-                        continue;
-                    ApplyDamage(other, "Blunt", comp.TwilightDamage, uid);
-                    _stun.TryKnockdown(other, comp.TwilightStun, true);
-                }
-                Finish(uid, comp, HbmAbility.Twilight, comp.TwilightCooldown, now);
                 break;
             case HbmAbility.Holoparasite:
                 if (now < comp.StepTime)
@@ -360,6 +384,7 @@ public sealed partial class TenHourBurstManSystem : EntitySystem
                 if (comp.ShotsLeft > 0)
                 {
                     Shoot(uid, target, comp.ShotgunProjectile, comp.ShotgunProjectileSpeed, comp.ShotgunPellets, comp.ShotgunSpread);
+                    PlayBossSound(uid, comp.ShotgunSound);
                     comp.ShotsLeft--;
                     comp.StepTime = now + comp.ShotgunGap;
                 }
@@ -427,6 +452,11 @@ public sealed partial class TenHourBurstManSystem : EntitySystem
         comp.Parasite = null;
         comp.Ability = HbmAbility.None;
         comp.Step = 0;
+        if (comp.TwilightDoAfter != null)
+        {
+            _doAfter.Cancel(comp.TwilightDoAfter);
+            comp.TwilightDoAfter = null;
+        }
         WakeNpc(ent.Owner);
         SetState(ent.Owner, TenHourBurstManVisualState.Default);
         SetGlow(ent.Owner, Color.White, 0f);
@@ -572,6 +602,7 @@ public sealed partial class TenHourBurstManSystem : EntitySystem
         _damageable.TryChangeDamage(target, damage, ignoreResistances: true);
     }
 }
+
 
 
 

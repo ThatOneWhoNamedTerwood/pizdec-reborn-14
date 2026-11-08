@@ -1,3 +1,4 @@
+using System.Numerics;
 using Robust.Shared.Map;
 using Robust.Shared.Serialization;
 
@@ -21,6 +22,10 @@ public sealed class NavInterfaceState
     public Dictionary<NetEntity, List<DockingPortState>> Docks;
 
     public bool RotateWithEntity = true;
+
+    public bool StormActive;
+    public Vector2 StormPosition;
+    public List<float> StormRadii = new();
 
     public NavInterfaceState(
         float maxRange,

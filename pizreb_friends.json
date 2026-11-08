@@ -1,0 +1,19 @@
+{
+  "Friends": {
+    "a1c1e16e-0d49-4e2f-b22e-d46d55786ccc": [
+      "b64a27eb-0515-46e8-bf9d-f0bf8d6cf541"
+    ],
+    "b64a27eb-0515-46e8-bf9d-f0bf8d6cf541": [
+      "a1c1e16e-0d49-4e2f-b22e-d46d55786ccc",
+      "c28bae46-f2c0-44ab-8ea3-1389027d825e"
+    ],
+    "c28bae46-f2c0-44ab-8ea3-1389027d825e": [
+      "b64a27eb-0515-46e8-bf9d-f0bf8d6cf541"
+    ]
+  },
+  "Names": {
+    "a1c1e16e-0d49-4e2f-b22e-d46d55786ccc": "TestA",
+    "b64a27eb-0515-46e8-bf9d-f0bf8d6cf541": "TestB",
+    "c28bae46-f2c0-44ab-8ea3-1389027d825e": "JohnGenero"
+  }
+}

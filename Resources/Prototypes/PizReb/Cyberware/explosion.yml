@@ -1,0 +1,8 @@
+﻿- type: explosion
+  id: CyberwareImpact
+  damagePerIntensity:
+    types:
+      Blunt: 5
+      Piercing: 3
+      Heat: 1
+  lightColor: Orange

@@ -9,6 +9,8 @@
   - PizRebJumpsuitBlack
   - PizRebJumpsuitRed
   - PizRebJumpsuitGreen
+  - PizRebJumpsuitBlue
+  - PizRebJumpsuitBrown
 
 - type: loadoutGroup
   id: PizRebFighterShoes
@@ -19,6 +21,7 @@
   - PizRebShoesBlack
   - PizRebShoesJack
   - PizRebShoesWork
+  - PizRebShoesWhite
 
 - type: loadoutGroup
   id: PizRebFighterBack
@@ -96,6 +99,16 @@
     jumpsuit: ClothingUniformJumpsuitColorGreen
 
 - type: loadout
+  id: PizRebJumpsuitBlue
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorBlue
+
+- type: loadout
+  id: PizRebJumpsuitBrown
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorBrown
+
+- type: loadout
   id: PizRebShoesBlack
   equipment:
     shoes: ClothingShoesColorBlack
@@ -109,6 +122,11 @@
   id: PizRebShoesWork
   equipment:
     shoes: ClothingShoesBootsWork
+
+- type: loadout
+  id: PizRebShoesWhite
+  equipment:
+    shoes: ClothingShoesColorWhite
 
 - type: loadout
   id: PizRebBackpack

@@ -5,6 +5,9 @@
     sprite: PizReb/Mobs/10hbm.rsi
     state: icon
   displayRange: 35
+  healthBarColor: "#3A3A3E"
+  healthBarBackgroundColor: "#101014"
+  healthBarBorderColor: "#5A5A62"
   phases:
   - threshold: 1
     music: /Audio/PizReb/Boss/10hbm/theme1.ogg
@@ -55,6 +58,43 @@
   - type: Transform
 
 - type: entity
+  id: BossTwilightWave
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    scale: 2.5, 2.5
+    layers:
+    - state: blastwave
+      shader: unshaded
+  - type: TimedDespawn
+    lifetime: 0.8
+  - type: Transform
+
+- type: entity
+  id: BossTwilightCracks
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    drawdepth: FloorObjects
+    sprite: Structures/Windows/cracks.rsi
+    scale: 3, 3
+    color: "#191A1E"
+    layers:
+    - state: DamageOverlay_20
+  - type: TimedDespawn
+    lifetime: 30
+  - type: Transform
+
+- type: entity
+  id: BossWeaponArcNone
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 0.2
+  - type: Transform
+
+- type: entity
   parent: BaseBullet
   id: BossArcaneBarrage
   categories: [ HideSpawnMenu ]
@@ -65,12 +105,15 @@
     - state: arcane_barrage
       shader: unshaded
   - type: Projectile
-    angle: -90
     damage:
       types:
         Shock: 35
   - type: StaminaDamageOnCollide
     damage: 15
+  - type: PointLight
+    color: "#B23BFF"
+    energy: 2
+    radius: 2
 
 - type: entity
   parent: SimpleSpaceMobBase
@@ -153,6 +196,10 @@
     thresholds:
       0: Alive
       1500: Dead
+  - type: MeleeWeapon
+    angle: 0
+    animation: BossWeaponArcNone
+    wideAnimation: BossWeaponArcNone
   - type: MovementSpeedModifier
     baseWalkSpeed: 2.8
     baseSprintSpeed: 3.6
@@ -186,7 +233,7 @@
     holoparasiteCooldown: 15
     holoparasiteRange: 5
     holoparasiteDuration: 5
-    holoparasiteSlow: 0.9
+    holoparasiteSlow: 0.5
     holoparasiteSound: /Audio/PizReb/Boss/10hbm/holoparasite.ogg
     vampirismEnabled: false
     vampirismCooldown: 14
@@ -207,10 +254,12 @@
     shotgunSlow: 0.25
     shotgunProjectileSpeed: 25
     shotgunSound: /Audio/PizReb/Boss/10hbm/shotgun.ogg
+    shotgunEquipSound: /Audio/PizReb/Boss/10hbm/shotgunequip.ogg
     grandValleyCooldown: 9
     grandValleyMinRange: 3.5
     grandValleyMaxRange: 22
     grandValleyShots: 4
+    grandValleySlow: 0.5
     grandValleyGap: 0.25
     grandValleyProjectileSpeed: 22
     grandValleySound: /Audio/PizReb/Boss/10hbm/grandvalley.ogg
@@ -222,6 +271,7 @@
     strongLeftChase: 3
     strongLeftSound: /Audio/PizReb/Boss/10hbm/strongleft.ogg
     deathSound: /Audio/PizReb/Boss/10hbm/death.ogg
+
 
 
 

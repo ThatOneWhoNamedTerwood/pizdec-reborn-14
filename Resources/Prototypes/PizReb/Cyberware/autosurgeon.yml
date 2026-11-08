@@ -1,0 +1,43 @@
+﻿- type: entity
+  parent: OperatingTable
+  id: AutoSurgeonTable
+  name: ripperdoc
+  description: An automated surgical table. It straps the patient down and performs the operation by itself.
+  components:
+  - type: AutoSurgeon
+  - type: Speech
+  - type: DoAfter
+  - type: UserInterface
+    interfaces:
+      enum.AutoSurgeonUiKey.Key:
+        type: AutoSurgeonBoundUserInterface
+
+- type: npcFaction
+  id: Cyberpsycho
+  hostile:
+  - NanoTrasen
+  - Syndicate
+  - Xeno
+  - PetsNT
+  - Zombie
+  - Revolutionary
+  - AllHostile
+  - Wizard
+  - Xenoborg
+  - SimpleHostile
+  - SimpleNeutral
+  - Dragon
+  - Mouse
+  - TenHourBurstBoss
+
+- type: entity
+  parent: BaseObjective
+  id: CyberpsychoKillAllObjective
+  name: rvi i terzai
+  components:
+  - type: Objective
+    issuer: TheSyndicate
+    difficulty: 1
+
+
+

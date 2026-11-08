@@ -190,6 +190,7 @@ public sealed partial class ExpeditionGatewaySystem : EntitySystem
                 continue;
             portal.Gateway = ent.Owner;
             mission.ReturnPortal = portalUid;
+            SetReturnPortalOpen(portalUid, proto.Objective == GatewayMissionObjective.Retrieve);
         }
         SpawnObjective(mapUid, mapId, proto, mission);
         if (mission.SpawnPoints.Count == 0 || mission.ReturnPortal == null || mission.Objective == null)
@@ -208,6 +209,15 @@ public sealed partial class ExpeditionGatewaySystem : EntitySystem
         _audio.PlayPvs(ent.Comp.OpenSound, ent.Owner);
         UpdateUi(ent);
         return true;
+    }
+
+    private void SetReturnPortalOpen(EntityUid portal, bool open)
+    {
+        _appearance.SetData(portal, GatewayReturnPortalVisuals.Active, open);
+        if (TryComp<PointLightComponent>(portal, out var light))
+            _light.SetEnabled(portal, open, light);
+        if (TryComp<AmbientSoundComponent>(portal, out var ambience))
+            _ambience.SetAmbience(portal, open, ambience);
     }
 
     private void SpawnObjective(EntityUid mapUid, MapId mapId, GatewayMissionPrototype proto, GatewayMissionComponent mission)
@@ -282,6 +292,11 @@ public sealed partial class ExpeditionGatewaySystem : EntitySystem
         if (!Exists(mission.Gateway))
             return false;
         var proto = ProtoMan.Index(mission.Mission);
+        if (proto.Objective != GatewayMissionObjective.Retrieve && !mission.ObjectiveDone)
+        {
+            _popup.PopupEntity(Loc.GetString("gateway-mission-return-locked"), subject, subject);
+            return false;
+        }
         if (proto.Objective == GatewayMissionObjective.Retrieve && mission.Objective != null &&
             IsObjectiveCarried(mission.Objective.Value, subject, mapId))
             CompleteObjective(mapUid, mission);
@@ -323,6 +338,8 @@ public sealed partial class ExpeditionGatewaySystem : EntitySystem
         if (mission.ObjectiveDone)
             return;
         mission.ObjectiveDone = true;
+        if (mission.ReturnPortal is { } portal && !Deleted(portal))
+            SetReturnPortalOpen(portal, true);
         AnnounceToMap(mapUid, Loc.GetString("gateway-mission-objective-done"));
     }
 

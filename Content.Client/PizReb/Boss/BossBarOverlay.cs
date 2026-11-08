@@ -79,9 +79,9 @@ public sealed partial class BossBarOverlay : Overlay
         var bottom = top + height;
         var handle = args.ScreenHandle;
 
-        var background = new Color(0.07f, 0.07f, 0.08f, 0.72f);
-        var border = new Color(0.75f, 0.75f, 0.75f, 0.55f);
-        var fillColor = new Color(0.62f, 0.09f, 0.09f, 0.90f);
+        var background = bestPrototype.HealthBarBackgroundColor;
+        var border = bestPrototype.HealthBarBorderColor;
+        var fillColor = bestPrototype.HealthBarColor;
         handle.DrawRect(new UIBox2(left, top, right, bottom), background);
         var fraction = bestComponent.MaxHealth <= 0f
             ? 0f

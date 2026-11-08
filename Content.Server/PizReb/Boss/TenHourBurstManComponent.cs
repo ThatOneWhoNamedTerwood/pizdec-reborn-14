@@ -1,4 +1,5 @@
 ﻿using System.Numerics;
+using Content.Shared.DoAfter;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
@@ -77,7 +78,7 @@ public sealed partial class TenHourBurstManComponent : Component
     public float TwilightSlow = 0.85f;
 
     [DataField]
-    public EntProtoId TwilightEffect = "BossShockwave";
+    public EntProtoId TwilightEffect = "BossTwilightWave";
 
     [DataField]
     public SoundSpecifier? TwilightSound;
@@ -161,6 +162,11 @@ public sealed partial class TenHourBurstManComponent : Component
     public SoundSpecifier? ShotgunSound;
 
     [DataField]
+    public SoundSpecifier? ShotgunEquipSound;
+
+    public DoAfterId? TwilightDoAfter;
+
+    [DataField]
     public TimeSpan GrandValleyCooldown = TimeSpan.FromSeconds(9);
 
     [DataField]
@@ -171,6 +177,9 @@ public sealed partial class TenHourBurstManComponent : Component
 
     [DataField]
     public int GrandValleyShots = 4;
+
+    [DataField]
+    public float GrandValleySlow = 0.5f;
 
     [DataField]
     public TimeSpan GrandValleyGap = TimeSpan.FromSeconds(0.25);
@@ -226,6 +235,8 @@ public sealed partial class TenHourBurstManComponent : Component
     public readonly Dictionary<HbmAbility, TimeSpan> Cooldowns = new();
     public readonly List<(TimeSpan Time, Vector2 Position)> History = new();
 }
+
+
 
 
 
