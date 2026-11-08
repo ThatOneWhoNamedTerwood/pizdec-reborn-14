@@ -39,3 +39,51 @@
   background: /Textures/Corvax/LobbyScreens/loop_hexgrid.gif
   title: lobby-state-background-loop-hexgrid-title
   artist: lobby-state-background-loop-hexgrid-artist
+
+- type: lobbyBackground
+  id: LoopPlasma
+  background: /Textures/Corvax/LobbyScreens/loop_plasma.gif
+  title: lobby-state-background-loop-plasma-title
+  artist: lobby-state-background-loop-plasma-artist
+
+- type: lobbyBackground
+  id: LoopNebulaGold
+  background: /Textures/Corvax/LobbyScreens/loop_nebula_gold.gif
+  title: lobby-state-background-loop-nebula-gold-title
+  artist: lobby-state-background-loop-nebula-gold-artist
+
+- type: lobbyBackground
+  id: LoopNebulaTeal
+  background: /Textures/Corvax/LobbyScreens/loop_nebula_teal.gif
+  title: lobby-state-background-loop-nebula-teal-title
+  artist: lobby-state-background-loop-nebula-teal-artist
+
+- type: lobbyBackground
+  id: LoopNebulaViolet
+  background: /Textures/Corvax/LobbyScreens/loop_nebula_violet.gif
+  title: lobby-state-background-loop-nebula-violet-title
+  artist: lobby-state-background-loop-nebula-violet-artist
+
+- type: lobbyBackground
+  id: LoopAuroraVeil
+  background: /Textures/Corvax/LobbyScreens/loop_aurora_veil.gif
+  title: lobby-state-background-loop-aurora-veil-title
+  artist: lobby-state-background-loop-aurora-veil-artist
+
+- type: lobbyBackground
+  id: LoopAuroraRibbons
+  background: /Textures/Corvax/LobbyScreens/loop_aurora_ribbons.gif
+  title: lobby-state-background-loop-aurora-ribbons-title
+  artist: lobby-state-background-loop-aurora-ribbons-artist
+
+- type: lobbyBackground
+  id: LoopSmokeGold
+  background: /Textures/Corvax/LobbyScreens/loop_smoke_gold.gif
+  title: lobby-state-background-loop-smoke-gold-title
+  artist: lobby-state-background-loop-smoke-gold-artist
+
+- type: lobbyBackground
+  id: LoopInk
+  background: /Textures/Corvax/LobbyScreens/loop_ink.gif
+  title: lobby-state-background-loop-ink-title
+  artist: lobby-state-background-loop-ink-artist
